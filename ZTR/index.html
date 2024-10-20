@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title Here</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gulzar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap" rel="stylesheet">
+
+    <style></style>
+    <style>
+        .relative {
+    position: relative; /* Needed for absolute positioning of child elements */
+}
+
+.new-slider-wrapper {
+    display: flex; /* Aligns slides in a row */
+    overflow: hidden; /* Hides overflowing slides */
+    width: 100%; /* Ensures the wrapper takes full width */
+}
+
+.new-slider-wrapper > div {
+    flex-shrink: 0; /* Prevents slides from shrinking */
+    width: 100%; /* Each slide takes full width of the wrapper */
+}
+
+img {
+    display: block; /* Removes bottom space under images */
+    width: 100%; /* Makes images responsive */
+    height: auto; /* Maintains aspect ratio */
+}
+
+.absolute {
+    position: absolute; /* For the overlay text */
+    bottom: 4px; /* Adjust as necessary */
+    left: 0; /* Aligns text at the bottom */
+    right: 0; /* Aligns text at the bottom */
+}
+
+.text-xs, .text-sm, .text-base {
+    font-family: 'Barlow', sans-serif; /* Ensures consistent font */
+    color: white; /* Adjust text color for visibility */
+}
+
+.border-gunsmoke-500 {
+    border-color: #A8A8A8; /* Example color; adjust as needed */
+}
+
+.border {
+    border-width: 1px; /* Set border width */
+}
+
+.rounded {
+    border-radius: 9999px; /* For rounded corners */
+}
+
+/* Optional: Add transition for smoother hover effects */
+.new-slider-wrapper:hover {
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+       body {
+    height: 200vh; /* Allow for scrolling */
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition */
+}
+
+.relative {
+    overflow: hidden; /* Hide overflow */
+}
+
+    </style>
+     <style>
+     .main-div {
+    width: 100%; 
+    height:600px; 
+    background-image: url('assets/ServicesGsapImg1.png'); 
+    background-size: cover;
+    display: flex;
+    align-items: normal;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.inner-div {
+    width: 100%; 
+    height: 100%; 
+    margin: 0px; 
+    padding: 100px; 
+    background-color: rgba(0, 0, 0, 0.6); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; 
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 1px; 
+}
+
+   
+    </style>
+</head>
+
+
+</html>
+
+
+<body>
+    <main>
+        <section>
+            <div class="text-white h-screen font-hanken flex flex-col items-center justify-center w-screen"
+                style="background-image: url('assets/HomeImg1.png'); background-size: cover; background-position: center; position: relative;">
+                <div class="absolute inset-0 bg-black bg-opacity-75"></div>
+
+                <div class="z-10 w-full justify-between flex flex-col">
+                    <div>
+                        <nav class="w-full z-20 mb-8">
+                            <div
+                                class="absolute top-0 left-0 w-full z-10 text-white font-hanken flex justify-between p-4 bg-transparent">
+                                <div class="hidden md:flex gap-4 text-center pt-4">
+                                    <div class="flex gap-2">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-white">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                                            </svg>
+
+                                        </div>
+                                        <div>600 543628</div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-white">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                            </svg>
+
+                                        </div>
+                                        <div>Dubai, U.A.E</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <img src="assets/LogoZRT.png" class="w-36 md:w-52 h-10 md:h-10" alt="Logo">
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#06BAB2]">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                    </svg>
+
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="ml-12 mt-24 md:mt-80 " style="font-family: 'Hanken Grotesk', sans-serif;">
+                        <div class="text-base font-bold">WELCOME TO ZRT CONTRACTING</div>
+                        <div class="text-5xl md:text-6xl  mt-3" style="font-family: 'Gulzar', sans-serif;">You
+                            Dream,<br />
+                            We Build</div>
+                        <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8 w-32">EXPLORE</div>
+                    </div>
+                    <div class="w-full flex justify-between items-center p-3 mt-2">
+                        <div class="w-20 h-10 hidden md:block">
+                            <img src="assets/WpLogo1.png" alt="Logo" />
+                        </div>
+                        <div class="hidden md:flex">
+                            <button class="border border-1 border-[#06BAB2]  rounded-3xl py-3 px-1">
+                                <svg class="w-6 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="flex flex-row md:flex-col ml-10 md:ml-0 gap-6 md:gap-3 mt-4 md:mt-0 mb-0 md:mb-40">
+                            <div class="border border-1 border-[#06BAB2] w-9 h-9 rounded-full">
+                                <img class="p-1 w-9 h-9" src="assets/fb.png" alt="Facebook" />
+                            </div>
+                            <div class="border border-1 rounded-full w-9 h-9">
+                                <img class="p-2 w-9 h-9" src="assets/Twitter.png" alt="Twitter" />
+                            </div>
+                            <div class="border border-1 rounded-full w-9 h-9">
+                                <img class="p-1 w-9 h-9" src="assets/Youtube.png" alt="YouTube" />
+                            </div>
+                            <div class="border border-1 rounded-full w-9 h-9">
+                                <img class="p-0.5 w-9 h-9" src="assets/LinkedIn.png" alt="LinkedIn" />
+                            </div>
+                            <div class="border border-1 rounded-full w-9 h-9">
+                                <img class="p-0.5 pb-1 w-9 h-9" src="assets/Instagram.png" alt="Instagram" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="w-screen">
+                <div class="top-0 left-0 w-full z-10 text-white font-hanken flex justify-between p-4 bg-black">
+                    <div>
+                        <img src="assets/LogoZRT.png" class="w-36 md:w-52 h-10 md:h-10" alt="Logo" />
+                    </div>
+                    <div class="hidden md:flex justify-between gap-14 text-sm">
+                        <div>HOME</div>
+                        <div>WHO WE ARE</div>
+                        <div>PROJECTS</div>
+                        <div>SERVICES</div>
+                        <div>NEWS</div>
+                        <div>CONTACT</div>
+                    </div>
+                    <div class="block md:hidden">
+                        <svg class="text-java-500 w-10 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-white flex flex-col items-center justify-center"
+                        style="background-image: url('assets/AboutHome.png'); background-size: cover; background-position: center; position: relative;">
+
+
+                        <div class="absolute inset-0 bg-black bg-opacity-80"></div>
+                        <div
+                            class="relative z-10 flex flex-col-reverse md:flex-row my-16 md:my-44 px-4 md:px-32 justify-between">
+                            <div class="text-white gap-4 md:order-1 mt-0 md:mt-8">
+                                <h1 class="text-5xl md:text-6xl text-center md:text-left" style="font-family: 'Gulzar', sans-serif;">About</h1>
+                                <div class="text-sm mt-6">
+                                    <div class="text-sm mt-6 text-center md:text-left">
+                                        UBBS is vastly experienced at working across sectors Residential, Hospitality
+                                        <span class="hidden md:inline"><br /></span>
+                                        and Commercial, and across disciplines Architecture and Interior Design. We
+                                        <span class="hidden md:inline"><br /></span>
+                                        offer a multifaceted, entirely bespoke design service, focused around achieving
+                                        <span class="hidden md:inline"><br /></span>
+                                        the best possible end result. Energy efficiency and sustainability issues are
+                                        <span class="hidden md:inline"><br /></span>
+                                        given serious consideration at the outset of the design process, in particular
+                                        on
+                                        <span class="hidden md:inline"><br /></span>
+                                        new-build projects.
+                                    </div>
+                                </div>
+                                <div class="hidden md:blocktext-base mt-2 underline text-center md:text-left font-hanken">VIEW HOME
+                                </div>
+                            </div>
+
+                            <div class="w-full sm:w-100 md:w-1/2 h-auto mb-4 md:mb-56 md:order-2">
+                                <img src="assets/AboutHome.png" alt="About UBBS" />
+                            </div>
+                        </div>
+    <div class="hidden md:flex justify-center ">
+                        <button class="border border-1 border-[#06BAB2] rounded-3xl py-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6 text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+                            </svg>
+
+                        </button>
+                    </div>
+                    </div>
+                
+                </div>
+
+
+            </div>
+        </section>
+        <section>
+            <div class="w-screen">
+                <div class="text-white h-screen font-hanken flex flex-col items-center justify-center"
+                    style="background-image: url('assets/ProjectsHome.png'); background-size: cover; background-position: center; position: relative;">
+                    <div class="w-full px-12 md:px-36 py-9">
+                        <div>
+                            <div class="text-5xl text-left " style="font-family: 'Gulzar', sans-serif; ">Projects</div>
+                            <div class="pt-6 font-hanken text-xl" style="font-family: 'Hanken Grotesk', sans-serif;">
+                                Top Contracting Company in Dubai,<br /> UAE Region (Founded In 1999),
+                            </div>
+                            
+                            <div class="mt-4 border-t border-1 w-full bg-white bg-opacity-50"></div>
+                        </div>
+                    </div>
+                    <div class="flex px-12 md:px-20 justify-between  w-screen">
+                        <div class="hidden md:block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-12 h-12">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                            </svg>
+
+                        </div>
+                        <div class="flex  flex-row md:flex-row gap-4 mr-96">
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8">
+                                    Residentiality
+                                </div>
+                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8">
+                                    Hospitality
+                                </div>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8">
+                                    Commercial
+                                </div>
+                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8">
+                                    Retail
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class=" hidden md:flex text-base mt-4 underline   font-hanken">VIEW HOME</div>
+                        <div class="hidden md:block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-12 h-12">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="relative mx-4 sm:mx-6 md:mx-10 overflow-hidden mt-10">
+                        <div class="flex continuous-slider-wrapper gap-3">
+                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative">
+                                <img src="assets/ProjectHome1.png" alt="Project Home 1" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                                <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
+                                    <div style="font-family: 'Barlow', sans-serif;">Premium Golf & Country Club</div>
+                                    <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">Downtown, Dubai</div>
+                                </div>
+                            </div>
+                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative">
+                                <img src="assets/ProjectHome2.png" alt="Project Home 2" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                                <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
+                                    <div style="font-family: 'Barlow', sans-serif;">Luxury Apartment Complex</div>
+                                    <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">City Center, Dubai</div>
+                                </div>
+                            </div>
+                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative">
+                                <img src="assets/ProjectHome3.png" alt="Project Home 3" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                                <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
+                                    <div style="font-family: 'Barlow', sans-serif;">Elegant Villa Estate</div>
+                                    <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">Green Valley, Dubai</div>
+                                </div>
+                            </div>
+                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative">
+                                <img src="assets/ProjectHome1.png" alt="Project Home 4" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                                <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
+                                    <div style="font-family: 'Barlow', sans-serif;">Seaside Resort</div>
+                                    <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">Coastal City, Dubai</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </section>
+        <section>
+<div class="w-screen">
+    <div class="px-12 md:px-36  mt-10 md:mt-10 w-full">
+    <div class="text-5xl text-left " style="font-family: 'Gulzar', sans-serif; "> Our Services</div>
+    <div class="flex flex-row md:flex-row gap-4  mr-96  ">
+        <div class="flex flex-col md:flex-row">
+        <div class="p-1 border border-1 border-black text-black  text-xs rounded-full mt-4 px-6 text-nowrap ">Interior Design Services</div>
+        <div class="  p-1 border border-1 border-black text-black  text-xs rounded-full mt-4 px-6 text-nowrap   ">Gray Structure</div>
+
+        <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6 text-nowrap   ">Refurbishment</div>
+       </div>
+       <div class="flex flex-col md:flex-row">
+        <div class="  p-1 border border-1 border-black  text-black text-xs rounded-full mt-4 px-6  text-nowrap  ">Home Renovations</div>
+        <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6 text-nowrap   ">Turnkey Solutions</div>
+        <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6  text-nowrap   ">Joinery Works</div>
+    </div>
+    </div>
+</div>
+<div class="main-div mt-6 w-full">
+    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ServicesGsapImg1.png">GRAY STRUCTURE</div>
+    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ProjectHome2.png">INTERIOR DESIGN SERVICES</div>
+    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ProjectHome3.png">REFURBISHEMENT</div>
+    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ProjectHome1.png">HOME RENOVATION</div>
+    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ProjectHome2.png">TURNKEY SOLUTION</div>
+    <div class="overlay"></div>
+</div>
+</div>
+        </section>
+        <section>
+            <div class="w-screen">
+                <div class="flex justify-between px-12 md:px-36 mt-20">
+                <div class="text-5xl text-left text-nowrap " style="font-family: 'Gulzar', sans-serif; "> Latest News</div>
+                <div class="text-base mt-4 underline   font-hanken">VIEW HOME</div>
+            </div>
+            <div class="relative mx-10 overflow-hidden mt-10 mb-10 h-1/4">
+                <div class="flex slider-wrapper gap-3 h-80">
+                    <div class="sm:w-1/2 md:w-1/4    flex-shrink-0 relative">
+                        <img src="assets/ProjectHome2.png" alt="Slide 1" class=" h-full w-full  object-cover">
+                        <div
+                            class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white  rounded">
+                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure
+                                Club</div>
+                            <div class=" border-gunsmoke-500  rounded-full px-3"
+                                style="     font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
+                        </div>
+                    </div>
+                    <div class="sm:w-1/2 md:w-1/4 flex-shrink-0 relative">
+                        <img src="assets/ProjectHome3.png" alt="Slide 2" class="w-full h-full object-cover">
+                        <div
+                            class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white p rounded">
+                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure
+                                Club</div>
+                            <div class="  px-3"
+                                style=" font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
+                        </div>
+                    </div>
+                    <div class="sm:w-1/2 md:w-1/4  flex-shrink-0 relative">
+                        <img src="assets/ProjectHome1.png" alt="Slide 3" class="w-full h-full object-cover">
+                        <div
+                            class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white p rounded">
+                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure
+                                Club</div>
+                            <div class="  px-3"
+                                style="     font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
+                        </div>
+                        
+                    </div>
+                    <div class="sm:w-1/2 md:w-1/4   flex-shrink-0 relative">
+                        <img src="assets/ProjectHome2.png" alt="Slide 3" class="w-full h-full object-cover">
+                        <div
+                            class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white p rounded">
+                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure
+                                Club</div>
+                            <div class="  px-3"
+                                style="     font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section>
+            
+            <div class=" w-screen bg-cover bg-center" style="background-image: url('assets/NewsImg.png');">
+            
+                <div class="bg-black bg-opacity-75 min-h-screen flex items-center justify-center">
+                    <div class=" p-8 rounded-lg shadow-lg w-full max-w-3xl">
+                        <div class="text-5xl text-center  text-white" style="font-family: 'Gulzar', sans-serif; "> Get In Touch</div>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div class="space-y-6 p-4 rounded-md">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div class="relative">
+                                        <input type="text" id="first-name" name="first-name" placeholder="First Name*" class="mt-1 text-white block w-full px-4  py-1 border bg-black bg-opacity-35 border-[#D0D0D0B2] rounded" required>
+                                    </div>
+                                    <div class="relative">
+                                        <input type="text" id="last-name" name="last-name" placeholder="Last Name*" class="mt-1 text-white block w-full px-4  py-1 border bg-black bg-opacity-35 border-[#D0D0D0B2] rounded" required>
+                                    </div>
+                                </div>
+            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="relative">
+                                    <input type="tel" id="phone" name="phone" placeholder="Your Phone" class="mt-1 text-white block w-full px-4  py-1 border bg-black bg-opacity-35 border-[#D0D0D0B2] rounded" required>
+                                </div>
+                                <div class="relative">
+                                    <input type="email" id="email" name="email" placeholder=" Your Email*" class="mt-1 text-white block w-full px-4  py-1  border border-1 bg-black bg-opacity-35 border-[#D0D0D0B2] rounded" required>
+                                </div>
+                            </div>
+            
+                            <div class="relative">
+                                <textarea id="message" name="message" rows="4" placeholder="Message" class="mt-1 block w-full px-4 py-2  bg-black bg-opacity-35 border border-[#D0D0D0B2] rounded" required></textarea>
+                            </div>
+            
+                            <div class="text-center">
+                                <button type="submit" class="mt-4 px-8 py-1  text-white  bg-black bg-opacity-35 border border-[#D0D0D0B2] rounded">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            
+            </div>
+            </html>
+            
+        </section>
+        <Section>
+            <div class="flex flex-col bg-[#EEEDE6] w-screen">
+                <div class="flex justify-center my-8">
+                <img src="assets/LogoZRTWhite.png" class=" w-36 md:w-64 h-10 md:h-12" alt="Logo">
+            </div>
+                <div class="flex sm: flex-col md:flex-row px-16 justify-between text-black"style="font-family: 'Barlow', sans-serif; ">
+                    <div class="flex flex-col text-black" style="font-family: 'Barlow', sans-serif; ">
+                        <div class="font-bold text-base py-4 text-black">ABOUT ZRT CONTRACTING</div>
+                        <div class="text-sm text-black">ZRT COntracting, a subsidiary of Elite Group Holding, is a premier multi-brand dealership specializing in<br/>
+                             luxury automotive marques, offering an exceptional and seamless automotive experience. With <br/>
+                             headquarters in Dubai, UAE, The Elite Cars’ presence extends strategically across the region, ensuring <br/>
+                             accessibility and convenience for their valued clients.<br/>  The Elite Cars is not endorsed by, maintained or sponsored by any car manufacturer.</div>
+                    <div class="pt-6">Terms & Conditions | Privacy Policy</div>
+                        </div>
+                        <div class="flex gap-4">
+                        <div class=" text-black">
+                            <div class="font-bold text-base py-4 text-black">QUICK LINKS</div>
+                            <div class="text-sm text-black">Home</div>
+                            <div class="text-sm text-black"> About us </div>
+                            <div class="text-sm text-black">Services </div>
+                            <div class="text-sm text-black">Projects </div>
+                            <div class="text-sm text-black">Blogs </div>
+                            <div class="text-sm text-black">Contact Us</div>
+
+                        </div>
+                        <div >
+                            <div class="font-bold text-base py-4 text-black ">CONTACT US</div>
+                            <div class="">
+                              
+                                <div class="flex gap-3 py-1 text-black ">
+                                    <div ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                      </svg>
+                                      </div>
+                                    <div class="text-sm text-black">4th Street, Al Quoz 3, P. O. Box 393316, Dubai, U.A.E</div>
+                                </div>
+                                <div class="flex gap-3 py-1">
+                                    <div ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                                      </svg>
+                                      
+                                      </div>
+                                    <div class="text-sm text-black">600 543628</div>
+                                </div>
+                                <div class="flex gap-3 py-1">
+                                    <div><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
+                                      </svg>
+                                      </div>
+                                      <div class="text-sm text-black ">600 543628</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+               
+            </div>
+            <div class="px-16">
+                <div class="w-full border border-b-1 my-10 bg-black text-black "> </div>
+<div class="flex text-xs justify-between text-black " style="font-family: 'Barlow', sans-serif; ">
+                <div>© Copyright ZRT Contracting 2024
+                  
+                </div>
+                <div class="flex justify-between gap-4 text-black ">
+                    <div class="text-black">SITEMAP </div>
+                    <div class="text-black">CONTACT US </div>
+                    <div class="text-black">TERMS AND CONDITIONS </div>
+
+                    <div class="text-black">PRIVACY POLICY</div>
+                    <div class="text-black"> COOKIE</div>
+                    <div class="text-black"> POLICY </div>
+                    <div class="text-black">COOKIE</div>
+                    <div class="text-black"> SETTINGS</div>
+
+                </div>
+            </div>
+    </div>
+   
+        </Section>
+       
+    </main>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const mainDiv = document.querySelector('.main-div');
+        mainDiv.style.backgroundImage = "url('assets/ServicesGsapImg1.png')"; 
+    
+        const innerDivs = document.querySelectorAll('.inner-div');
+    
+        innerDivs.forEach(div => {
+            div.addEventListener('mouseenter', () => {
+                const newBg = div.getAttribute('data-bg');
+                gsap.to(mainDiv, {
+                    duration: 0,
+                    backgroundImage: `url('${newBg}')`, 
+                    ease: "power1.out"
+                });
+            });
+        });
+    
+        mainDiv.addEventListener('mouseleave', () => {
+            gsap.to(mainDiv, {
+                duration: 0,
+                backgroundImage: "url('assets/ServicesGsapImg1.png')", 
+                ease: "power1.out"
+            });
+        });
+    </script>
+<script>
+    const sliderWrapper = document.querySelector('.continuous-slider-wrapper');
+    let isScrolling = false;
+
+    // Set initial position for the slider
+    gsap.set(sliderWrapper, { xPercent: 0 });
+
+    // Function to handle continuous scrolling
+    const scrollSlider = (e) => {
+        if (isScrolling) {
+            const delta = e.deltaY || e.detail || e.wheelDelta;
+            gsap.to(sliderWrapper, {
+                x: `-=${delta * 0.5}`, // Adjust speed as necessary
+                duration: 0.5,
+                ease: "power1.out"
+            });
+        }
+    };
+
+    sliderWrapper.addEventListener('mouseenter', () => {
+        isScrolling = true;
+    });
+
+    sliderWrapper.addEventListener('mouseleave', () => {
+        isScrolling = false;
+    });
+
+    // Attach mouse wheel event
+    sliderWrapper.addEventListener('wheel', scrollSlider);
+</script>
+
+
+
+
+    
+    
+</body>
+
+</html>
