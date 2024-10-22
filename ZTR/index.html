@@ -5,15 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Title Here</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.3.0/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gulzar&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        const hoverDiv = document.querySelector('.hover-effect');
+        const popupTooltip = hoverDiv.querySelector('.popup-tooltip');
+    
+        hoverDiv.addEventListener('mouseenter', () => {
+            popupTooltip.classList.remove('hidden');
+        });
+    
+        hoverDiv.addEventListener('mouseleave', () => {
+            popupTooltip.classList.add('hidden');
+        });
+    </script>
+    
+  <style>
+    #full-screen-menu {
+    transform: translateX(100%); /* Start off-screen to the right */
+    transition: transform s ease; /* Smooth transition */
+}
 
-    <style></style>
+#full-screen-menu.open {
+    transform: translateX(0); /* Slide in */
+}
+
+  </style>
     <style>
-        .relative {
+     @keyframes zoomInBackground {
+    0% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 110%; /* Adjust to the desired zoom level */
+    }
+}
+
+/* Apply the animation to the section for desktop view */
+@media (min-width: 1024px) { /* Targeting screens 1024px and above (desktop) */
+    .zoom-in-background {
+        animation: zoomInBackground 8s ease-in-out infinite alternate; /* Animation for desktop view */
+    }
+}
+
+.relative {
     position: relative; /* Needed for absolute positioning of child elements */
 }
 
@@ -62,7 +100,8 @@ img {
 .new-slider-wrapper:hover {
     transition: transform 0.3s ease; /* Smooth transition */
 }
-       body {
+
+body {
     height: 200vh; /* Allow for scrolling */
 }
 
@@ -74,6 +113,7 @@ img {
 .relative {
     overflow: hidden; /* Hide overflow */
 }
+
 
     </style>
      <style>
@@ -105,6 +145,24 @@ img {
 
    
     </style>
+    <style>
+     .about-mv {
+    background-color: #333; /* Fallback color */
+    background-image: url('assets/HomeImg1.png'); /* Default for desktop */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+@media (max-width: 500px) {
+    .about-mv {
+        background-image: url('assets/aboutmv.png'); /* Background for mobile */
+    }
+    html {
+    scroll-behavior: smooth;
+}
+}
+    </style>
 </head>
 
 
@@ -113,32 +171,32 @@ img {
 
 <body>
     <main>
-        <section>
-            <div class="text-white h-screen font-hanken flex flex-col items-center justify-center w-screen"
-                style="background-image: url('assets/HomeImg1.png'); background-size: cover; background-position: center; position: relative;">
-                <div class="absolute inset-0 bg-black bg-opacity-75"></div>
+        <section id="home" class="w-screen">
+            <div class= "  about-mv text-white h-screen font-hanken flex flex-col items-center justify-center sm:w-screen md:w-screen "
+            style="background-image: url('assets/HomeImg1.png'); background-size: cover; background-position: center; position: relative;">
+            <div class="absolute inset-0 bg-black bg-opacity-75"></div>
 
                 <div class="z-10 w-full justify-between flex flex-col">
                     <div>
-                        <nav class="w-full z-20 mb-8">
+                        <nav class="w-full z-20 ">
                             <div
-                                class="absolute top-0 left-0 w-full z-10 text-white font-hanken flex justify-between p-4 bg-transparent">
-                                <div class="hidden md:flex gap-4 text-center pt-4">
+                                class="absolute top-0 left-0 w-full z-10 text-white font-hanken flex justify-between   sm:px-4 md:px-10 sm:py-4 md:py-6 bg-transparent">
+                                <div class="hidden md:flex gap-4 text-center pt-4 fade-in-logo">
                                     <div class="flex gap-2">
-                                        <div>
+                                        <div >
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-white">
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                                             </svg>
 
                                         </div>
-                                        <div>600 543628</div>
+                                        <div class="text-xs">600 543628</div>
                                     </div>
                                     <div class="flex gap-2">
-                                        <div>
+                                        <div >
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-white">
+                                                stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -146,145 +204,214 @@ img {
                                             </svg>
 
                                         </div>
-                                        <div>Dubai, U.A.E</div>
+                                        <div class="text-xs">Dubai, U.A.E</div>
                                     </div>
                                 </div>
-                                <div>
-                                    <img src="assets/LogoZRT.png" class="w-36 md:w-52 h-10 md:h-10" alt="Logo">
+                                <div class="mr-">
+                                    <img src="assets/LogoZRT.png" class="w-36 fade-in-logo md:w-52 h-10 md:h-10 sm:mr-0 md:mr-24 " alt="Logo">
                                 </div>
-                                <div>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#06BAB2]">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                                    </svg>
-
+                                <div class="relative">
+                                    <!-- Bar Icon -->
+                                    <div class="fade-in-logo cursor-pointer" onclick="toggleMenu()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#06BAB2]">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                        </svg>
+                                    </div>
+                                    
+                                    <!-- Full-screen Menu Overlay -->
+                                    <div id="full-screen-menu" class="fixed inset-0 hidden bg-black bg-opacity-70 flex justify-end z-50">
+                                        <div class="w-full flex sm:flex-col md:flex-col sm:w-2/3 md:w-1/3 h-full relative bg-cover bg-center" style="background-image: url('assets/BarImg.png');">
+                                            <!-- Close Button -->
+                                            <div class="absolute top-2 right-4 text-white left-72 items-center ">
+                                                <button onclick="toggleMenu()" class="flex items-center text-2xl sm:text-4xl">
+                                                    <span class="mr-2 text-base sm:text-lg">Close</span> &times;
+                                                </button>
+                                            </div>
+                                            <!-- Menu Items -->
+                                             <div>
+                                                <div>
+                                            <ul class="text-left mt-32 ml-10 sm:text-base md:text-base sm:ml-20 text-white">
+                                                <li class="p-3  hover:scale-95 transition-transform duration-700"><a href="#home">HOME</a></li>
+                                                <li class="p-3  hover:scale-95 transition-transform duration-700"><a href="#about">ABOUT US</a></li>
+                                                <li class="p-3  hover:scale-95 transition-transform duration-700"><a href="#projects">PROJECTS</a></li>
+                                                <li class="p-3  hover:scale-95 transition-transform duration-700"><a href="#services">SERVICES</a></li>
+                                                <li class="p-3  hover:scale-95 transition-transform duration-700"><a href="#mediacenter">MEDIA CENTER</a></li>
+                                                <li class="p-3  hover:scale-95 transition-transform duration-700"><a href="#contact">CONTACT US</a></li>
+                                                <!-- Add more menu items as needed -->
+                                            </ul>
+                                        </div>
+                                        <div class="hidden md:flex gap-4 text-left mt-20 ml-10 sm:text-xl md:text-xl sm:ml-20 text-white"">
+                                            <div class="flex gap-2 hover:scale-105 transition-transform duration-700">
+                                                <div >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                                                    </svg>
+        
+                                                </div>
+                                                <div class="text-xs ">600 543628</div>
+                                            </div>
+                                            <div class="flex gap-2 hover:scale-105 transition-transform duration-700">
+                                                <div >
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                        stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                                                    </svg>
+        
+                                                </div>
+                                                <div class="text-xs">Dubai, U.A.E</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                
+                                
                         </nav>
                     </div>
                     <div class="ml-12 mt-24 md:mt-80 " style="font-family: 'Hanken Grotesk', sans-serif;">
-                        <div class="text-base font-bold">WELCOME TO ZRT CONTRACTING</div>
-                        <div class="text-5xl md:text-6xl  mt-3" style="font-family: 'Gulzar', sans-serif;">You
+                        <div class="text-base font-bold fade-in-text">WELCOME TO ZRT CONTRACTING</div>
+                        <div class="text-5xl md:text-6xl fade-in-text mt-3" style="font-family: 'Gulzar', sans-serif;">You
                             Dream,<br />
                             We Build</div>
-                        <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8 w-32">EXPLORE</div>
+                        <div class="p-1 border border-1 text-sm fade-in-text rounded-full mt-4 px-8 w-32 ">EXPLORE</div>
                     </div>
                     <div class="w-full flex justify-between items-center p-3 mt-2">
-                        <div class="w-20 h-10 hidden md:block">
+                        <div class="w-20 h-10 hidden md:block fade-in-text">
                             <img src="assets/WpLogo1.png" alt="Logo" />
                         </div>
-                        <div class="hidden md:flex">
-                            <button class="border border-1 border-[#06BAB2]  rounded-3xl py-3 px-1">
-                                <svg class="w-6 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
+                        <div class="hidden md:flex fade-in-arrow fade-in-logo">
+                            <div id="section1" class="section">
+                                <button id="scrollButton" class="border border-1 border-[#06BAB2] rounded-3xl py-3 px-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                        stroke="currentColor" class="w-6 h-6 text-white">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+                                    </svg>
+                                </button>
+                            </div>
                         </div>
-                        <div class="flex flex-row md:flex-col ml-10 md:ml-0 gap-6 md:gap-3 mt-4 md:mt-0 mb-0 md:mb-40">
-                            <div class="border border-1 border-[#06BAB2] w-9 h-9 rounded-full">
-                                <img class="p-1 w-9 h-9" src="assets/fb.png" alt="Facebook" />
+                        <div class="flex flex-row md:flex-col   mr-2 md:mr-8 ml-10 md:ml-0 gap-6 md:gap-3 mt-4 md:mt-0 mb-0 md:mb-40">
+                            <div class="border border-[#06BAB2] rounded-full w-9 h-9   ">
+                                <img class="p-2 w-full h-full   hover:scale-105 transition-transform duration-1000" src="assets/fb.png" alt="Twitter" />
+                                
                             </div>
-                            <div class="border border-1 rounded-full w-9 h-9">
-                                <img class="p-2 w-9 h-9" src="assets/Twitter.png" alt="Twitter" />
+                            
+                            
+                            <div class="border border-1 rounded-full w-9 h-9  hover:scale-105 transition-transform duration-1000">
+                                <img class="p-2 w-9 h-9"  loading="lazy" src="assets/Twitter.png" alt="Twitter" />
                             </div>
-                            <div class="border border-1 rounded-full w-9 h-9">
+                            <div class="border border-1 rounded-full w-9 h-9  hover:scale-105 transition-transform duration-1000">
                                 <img class="p-1 w-9 h-9" src="assets/Youtube.png" alt="YouTube" />
                             </div>
-                            <div class="border border-1 rounded-full w-9 h-9">
+                            <div class="border border-1 rounded-full w-9 h-9  hover:scale-105 transition-transform duration-1000">
                                 <img class="p-0.5 w-9 h-9" src="assets/LinkedIn.png" alt="LinkedIn" />
                             </div>
-                            <div class="border border-1 rounded-full w-9 h-9">
+                            <div class="border border-1 rounded-full w-9 h-9  hover:scale-105 transition-transform duration-1000">
                                 <img class="p-0.5 pb-1 w-9 h-9" src="assets/Instagram.png" alt="Instagram" />
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
         </section>
         <section>
-            <div class="w-screen">
-                <div class="top-0 left-0 w-full z-10 text-white font-hanken flex justify-between p-4 bg-black">
+            <div class="section2 sm:w-screen md:w-screen">
+                <div class="top-0 left-0 w-full z-10 text-white font-hanken flex justify-between p-4 bg-black md:pr-12 md:px-4">
                     <div>
                         <img src="assets/LogoZRT.png" class="w-36 md:w-52 h-10 md:h-10" alt="Logo" />
                     </div>
-                    <div class="hidden md:flex justify-between gap-14 text-sm">
-                        <div>HOME</div>
-                        <div>WHO WE ARE</div>
-                        <div>PROJECTS</div>
-                        <div>SERVICES</div>
-                        <div>NEWS</div>
-                        <div>CONTACT</div>
+                    <div class="hidden md:flex justify-between gap-16 text-sm">
+                        <div>
+                            <a href="#home" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">HOME</a>
+                        </div>
+                        <div>
+                            <a href="#who-we-are" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">WHO WE ARE</a>
+                        </div>
+                        <div>
+                            <a href="#projects" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">PROJECTS</a>
+                        </div>
+                        <div>
+                            <a href="#services" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">SERVICES</a>
+                        </div>
+                        <div>
+                            <a href="#news" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">NEWS</a>
+                        </div>
+                        <div>
+                            <a href="#contact" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">CONTACT</a>
+                        </div>
                     </div>
                     <div class="block md:hidden">
-                        <svg class="text-java-500 w-10 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#06BAB2]">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
                     </div>
                 </div>
                 <div>
-                    <div class="text-white flex flex-col items-center justify-center"
+                    <div class="about-mv text-white flex flex-col items-center justify-center"
                         style="background-image: url('assets/AboutHome.png'); background-size: cover; background-position: center; position: relative;">
-
-
                         <div class="absolute inset-0 bg-black bg-opacity-80"></div>
-                        <div
-                            class="relative z-10 flex flex-col-reverse md:flex-row my-16 md:my-44 px-4 md:px-32 justify-between">
-                            <div class="text-white gap-4 md:order-1 mt-0 md:mt-8">
-                                <h1 class="text-5xl md:text-6xl text-center md:text-left" style="font-family: 'Gulzar', sans-serif;">About</h1>
-                                <div class="text-sm mt-6">
-                                    <div class="text-sm mt-6 text-center md:text-left">
-                                        UBBS is vastly experienced at working across sectors Residential, Hospitality
-                                        <span class="hidden md:inline"><br /></span>
-                                        and Commercial, and across disciplines Architecture and Interior Design. We
-                                        <span class="hidden md:inline"><br /></span>
-                                        offer a multifaceted, entirely bespoke design service, focused around achieving
-                                        <span class="hidden md:inline"><br /></span>
-                                        the best possible end result. Energy efficiency and sustainability issues are
-                                        <span class="hidden md:inline"><br /></span>
-                                        given serious consideration at the outset of the design process, in particular
-                                        on
-                                        <span class="hidden md:inline"><br /></span>
-                                        new-build projects.
+                        <div class="flex md:flex-col">
+                            <div class="relative z-10 flex flex-col-reverse md:flex-col my-16 md:my-44 md:mt-72 px-4 md:px-32 justify-between">
+                                <div class="flex flex-col md:flex-row">
+                                    <div class="text-white gap-4 sm:order-2 md:order-1 mt-0 md:mt-8 mx-0 md:mx-10">
+                                        <h1 class="text-5xl md:text-6xl text-center md:text-left fade-in-icons" style="font-family: 'Gulzar', sans-serif;">About</h1>
+                                        <div class="text-sm fade-in-icons">
+                                            <div class="text-sm mt-6 text-center md:text-left">
+                                                UBBS is vastly experienced at working across sectors Residential, Hospitality
+                                                <span class="hidden md:inline"><br /></span>
+                                                and Commercial, and across disciplines Architecture and Interior Design. We
+                                                <span class="hidden md:inline"><br /></span>
+                                                offer a multifaceted, entirely bespoke design service, focused around
+                                                <span class="hidden md:inline"><br /></span>
+                                                achieving the best possible end result. Energy efficiency and sustainability
+                                                <span class="hidden md:inline"><br /></span>
+ issues are
+                                                given serious consideration at the outset of the design process,
+                                                <span class="hidden md:inline"><br /></span>
+                                                in particular
+                                                on
+                                                new-build projects.
+                                            </div>
+                                        </div>
+                                        <div class="hidden md:block text-base mt-2 underline text-center md:text-left font-hanken">VIEW HOME
+                                        </div>
+                                    </div>
+                                    <div class="w-full sm:w-100 md:w-1/2 hover:scale-105 transition-transform duration-300 fade-in-bar image-container h-auto mb-4 md:mb-56 sm:order-1 md:order-2">
+                                        <img src="assets/AboutHome.png" alt="About UBBS" class="w-100" />
                                     </div>
                                 </div>
-                                <div class="hidden md:blocktext-base mt-2 underline text-center md:text-left font-hanken">VIEW HOME
+                                <div class="hidden md:flex justify-center">
+                                    <button class="border border-1 border-[#06BAB2] rounded-3xl py-3 px-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" class="w-6 h-6 text-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
-
-                            <div class="w-full sm:w-100 md:w-1/2 h-auto mb-4 md:mb-56 md:order-2">
-                                <img src="assets/AboutHome.png" alt="About UBBS" />
-                            </div>
                         </div>
-    <div class="hidden md:flex justify-center ">
-                        <button class="border border-1 border-[#06BAB2] rounded-3xl py-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-6 h-6 text-white">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
-                            </svg>
-
-                        </button>
                     </div>
-                    </div>
-                
                 </div>
-
-
             </div>
         </section>
+        
         <section>
-            <div class="w-screen">
+            <div class="sm:w-screen md:w-screen">
                 <div class="text-white h-screen font-hanken flex flex-col items-center justify-center"
                     style="background-image: url('assets/ProjectsHome.png'); background-size: cover; background-position: center; position: relative;">
                     <div class="w-full px-12 md:px-36 py-9">
                         <div>
-                            <div class="text-5xl text-left " style="font-family: 'Gulzar', sans-serif; ">Projects</div>
-                            <div class="pt-6 font-hanken text-xl" style="font-family: 'Hanken Grotesk', sans-serif;">
+                            <div class="text-5xl text-left  fade-in-icons" style="font-family: 'Gulzar', sans-serif; ">Projects</div>
+                            <div class="pt-6 font-hanken text-xl sub fade-in-icons" style="font-family: 'Hanken Grotesk', sans-serif;">
                                 Top Contracting Company in Dubai,<br /> UAE Region (Founded In 1999),
                             </div>
                             
@@ -292,14 +419,14 @@ img {
                         </div>
                     </div>
                     <div class="flex px-12 md:px-20 justify-between  w-screen">
-                        <div class="hidden md:block">
+                        <div class="hidden md:block fade-in-bar">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-12 h-12">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                             </svg>
 
                         </div>
-                        <div class="flex  flex-row md:flex-row gap-4 mr-96">
+                        <div class="flex fade-in-text flex-row md:flex-row gap-4 mr-96">
                             <div class="flex flex-col md:flex-row gap-4">
                                 <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8">
                                     Residentiality
@@ -318,8 +445,8 @@ img {
                             </div>
                         </div>
                         
-                        <div class=" hidden md:flex text-base mt-4 underline   font-hanken">VIEW HOME</div>
-                        <div class="hidden md:block">
+                        <div class=" hidden md:flex text-base mt-4 underline fade-in-text  font-hanken">VIEW HOME</div>
+                        <div class="hidden md:block fade-in-icons">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-12 h-12">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
@@ -328,32 +455,51 @@ img {
                     </div>
                     <div class="relative mx-4 sm:mx-6 md:mx-10 overflow-hidden mt-10">
                         <div class="flex continuous-slider-wrapper gap-3">
-                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative">
+                            <div class=" w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative hover:scale-105 transition-transform duration-1000">
                                 <img src="assets/ProjectHome1.png" alt="Project Home 1" class="w-full h-48 sm:h-56 md:h-64 object-cover">
                                 <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
                                     <div style="font-family: 'Barlow', sans-serif;">Premium Golf & Country Club</div>
                                     <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">Downtown, Dubai</div>
                                 </div>
                             </div>
-                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative">
+                            <div class=" w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative  hover:scale-105 transition-transform duration-1000">
                                 <img src="assets/ProjectHome2.png" alt="Project Home 2" class="w-full h-48 sm:h-56 md:h-64 object-cover">
                                 <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
                                     <div style="font-family: 'Barlow', sans-serif;">Luxury Apartment Complex</div>
                                     <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">City Center, Dubai</div>
                                 </div>
                             </div>
-                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative">
+                            <div class=" w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative hover:scale-105 transition-transform duration-1000">
                                 <img src="assets/ProjectHome3.png" alt="Project Home 3" class="w-full h-48 sm:h-56 md:h-64 object-cover">
                                 <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
                                     <div style="font-family: 'Barlow', sans-serif;">Elegant Villa Estate</div>
                                     <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">Green Valley, Dubai</div>
                                 </div>
                             </div>
-                            <div class="w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative">
+                            <div class=" w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative hover:scale-105 transition-transform duration-1000">
                                 <img src="assets/ProjectHome1.png" alt="Project Home 4" class="w-full h-48 sm:h-56 md:h-64 object-cover">
                                 <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
                                     <div style="font-family: 'Barlow', sans-serif;">Seaside Resort</div>
                                     <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">Coastal City, Dubai</div>
+                                </div>
+                            </div>
+                            <div class=" w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative hover:scale-105 transition-transform duration-1000">
+                                <img src="assets/ProjectHome2.png" alt="Project Home 1" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                                <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
+                                    <div style="font-family: 'Barlow', sans-serif;">Premium Golf & Country Club</div>
+                                    <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">Downtown, Dubai</div>
+                                </div>
+                            </div><div class=" w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative hover:scale-105 transition-transform duration-1000">
+                                <img src="assets/ProjectHome3.png" alt="Project Home 1" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                                <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
+                                    <div style="font-family: 'Barlow', sans-serif;">Premium Golf & Country Club</div>
+                                    <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">Downtown, Dubai</div>
+                                </div>
+                            </div><div class=" w-full sm:w-1/2 md:w-1/3 flex-shrink-0 relative hover:scale-105 transition-transform duration-1000">
+                                <img src="assets/ProjectHome1.png" alt="Project Home 1" class="w-full h-48 sm:h-56 md:h-64 object-cover">
+                                <div class="absolute flex bottom-4 text-xs sm:text-sm md:text-base px-2 justify-between w-full text-white p rounded">
+                                    <div style="font-family: 'Barlow', sans-serif;">Premium Golf & Country Club</div>
+                                    <div class="border-gunsmoke-500 border border-1 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">Downtown, Dubai</div>
                                 </div>
                             </div>
                         </div>
@@ -364,17 +510,17 @@ img {
             </div>
         </section>
         <section>
-<div class="w-screen">
+<div class="sm:w-screen md:w-screen">
     <div class="px-12 md:px-36  mt-10 md:mt-10 w-full">
-    <div class="text-5xl text-left " style="font-family: 'Gulzar', sans-serif; "> Our Services</div>
-    <div class="flex flex-row md:flex-row gap-4  mr-96  ">
-        <div class="flex flex-col md:flex-row">
+        <div class="text-5xl text-left fade-in-icons " style="font-family: 'Gulzar', sans-serif;">Our Services</div>
+        <div class="flex flex-row md:flex-row fade-in-text sm:gap-2 md:gap-8  mr-96  ">
+        <div class="flex flex-col  sm:gap-2  md:gap-8 md:flex-row">
         <div class="p-1 border border-1 border-black text-black  text-xs rounded-full mt-4 px-6 text-nowrap ">Interior Design Services</div>
         <div class="  p-1 border border-1 border-black text-black  text-xs rounded-full mt-4 px-6 text-nowrap   ">Gray Structure</div>
 
         <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6 text-nowrap   ">Refurbishment</div>
        </div>
-       <div class="flex flex-col md:flex-row">
+       <div class="flex flex-col  sm:gap-2 md:gap-8 md:flex-row">
         <div class="  p-1 border border-1 border-black  text-black text-xs rounded-full mt-4 px-6  text-nowrap  ">Home Renovations</div>
         <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6 text-nowrap   ">Turnkey Solutions</div>
         <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6  text-nowrap   ">Joinery Works</div>
@@ -382,25 +528,25 @@ img {
     </div>
 </div>
 <div class="main-div mt-6 w-full">
-    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ServicesGsapImg1.png">GRAY STRUCTURE</div>
-    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ProjectHome2.png">INTERIOR DESIGN SERVICES</div>
-    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ProjectHome3.png">REFURBISHEMENT</div>
-    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ProjectHome1.png">HOME RENOVATION</div>
-    <div class="inner-div text-white  text-xs font-bold" data-bg="assets/ProjectHome2.png">TURNKEY SOLUTION</div>
+    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ServicesGsapImg1.png">GRAY STRUCTURE</div>
+    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ProjectHome2.png">INTERIOR DESIGN SERVICES</div>
+    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ProjectHome3.png">REFURBISHEMENT</div>
+    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ProjectHome1.png">HOME RENOVATION</div>
+    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ProjectHome2.png">TURNKEY SOLUTION</div>
     <div class="overlay"></div>
 </div>
 </div>
         </section>
         <section>
-            <div class="w-screen">
-                <div class="flex justify-between px-12 md:px-36 mt-20">
-                <div class="text-5xl text-left text-nowrap " style="font-family: 'Gulzar', sans-serif; "> Latest News</div>
-                <div class="text-base mt-4 underline   font-hanken">VIEW HOME</div>
+            <div class="sm:w-screen md:w-screen">
+                <div class="flex fade-in-text justify-between px-12 md:px-36 mt-20">
+                <div class="text-5xl text-left text-nowrap heading " style="font-family: 'Gulzar', sans-serif; "> Latest News</div>
+                <div class="text-base mt-4 underline text-black  font-hanken">VIEW HOME</div>
             </div>
             <div class="relative mx-10 overflow-hidden mt-10 mb-10 h-1/4">
                 <div class="flex slider-wrapper gap-3 h-80">
-                    <div class="sm:w-1/2 md:w-1/4    flex-shrink-0 relative">
-                        <img src="assets/ProjectHome2.png" alt="Slide 1" class=" h-full w-full  object-cover">
+                    <div class="hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4    flex-shrink-0 relative ">
+                        <img src="assets/ProjectHome2.png" alt="Slide 1" class=" h-full w-full  object-cover ">
                         <div
                             class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white  rounded">
                             <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure
@@ -409,7 +555,7 @@ img {
                                 style="     font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
                         </div>
                     </div>
-                    <div class="sm:w-1/2 md:w-1/4 flex-shrink-0 relative">
+                    <div class="hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4 flex-shrink-0 relative">
                         <img src="assets/ProjectHome3.png" alt="Slide 2" class="w-full h-full object-cover">
                         <div
                             class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white p rounded">
@@ -419,7 +565,7 @@ img {
                                 style=" font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
                         </div>
                     </div>
-                    <div class="sm:w-1/2 md:w-1/4  flex-shrink-0 relative">
+                    <div class="hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4  flex-shrink-0 relative">
                         <img src="assets/ProjectHome1.png" alt="Slide 3" class="w-full h-full object-cover">
                         <div
                             class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white p rounded">
@@ -430,7 +576,7 @@ img {
                         </div>
                         
                     </div>
-                    <div class="sm:w-1/2 md:w-1/4   flex-shrink-0 relative">
+                    <div class="hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4   flex-shrink-0 relative">
                         <img src="assets/ProjectHome2.png" alt="Slide 3" class="w-full h-full object-cover">
                         <div
                             class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white p rounded">
@@ -447,12 +593,12 @@ img {
         </section>
         <section>
             
-            <div class=" w-screen bg-cover bg-center" style="background-image: url('assets/NewsImg.png');">
+            <div class=" sm:w-screen md:w-screen zoom-in-background bg-cover bg-center" style="background-image: url('assets/NewsImg.png');">
             
                 <div class="bg-black bg-opacity-75 min-h-screen flex items-center justify-center">
                     <div class=" p-8 rounded-lg shadow-lg w-full max-w-3xl">
-                        <div class="text-5xl text-center  text-white" style="font-family: 'Gulzar', sans-serif; "> Get In Touch</div>
-                        <form action="#" method="POST" class="space-y-6">
+                        <div class="text-5xl text-center fade-in-logo text-white" style="font-family: 'Gulzar', sans-serif; "> Get In Touch</div>
+                        <form action="#" method="POST" class="space-y-6 fade-in-text">
                             <div class="space-y-6 p-4 rounded-md">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                     <div class="relative">
@@ -490,11 +636,11 @@ img {
             
         </section>
         <Section>
-            <div class="flex flex-col bg-[#EEEDE6] w-screen">
+            <div class="flex flex-col bg-[#EEEDE6] sm:w-screen md:w-screen">
                 <div class="flex justify-center my-8">
                 <img src="assets/LogoZRTWhite.png" class=" w-36 md:w-64 h-10 md:h-12" alt="Logo">
             </div>
-                <div class="flex sm: flex-col md:flex-row px-16 justify-between text-black"style="font-family: 'Barlow', sans-serif; ">
+                <div class="flex sm: flex-col md:flex-row px-10 md:px-16 justify-between text-black"style="font-family: 'Barlow', sans-serif; ">
                     <div class="flex flex-col text-black" style="font-family: 'Barlow', sans-serif; ">
                         <div class="font-bold text-base py-4 text-black">ABOUT ZRT CONTRACTING</div>
                         <div class="text-sm text-black">ZRT COntracting, a subsidiary of Elite Group Holding, is a premier multi-brand dealership specializing in<br/>
@@ -552,7 +698,7 @@ img {
                 <div>© Copyright ZRT Contracting 2024
                   
                 </div>
-                <div class="flex justify-between gap-4 text-black ">
+                <div class="hidden md:flex justify-between gap-4 text-black ">
                     <div class="text-black">SITEMAP </div>
                     <div class="text-black">CONTACT US </div>
                     <div class="text-black">TERMS AND CONDITIONS </div>
@@ -570,9 +716,30 @@ img {
         </Section>
        
     </main>
+    
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <script>
+  function toggleMenu() {
+    const menu = document.getElementById("full-screen-menu");
+    if (menu.classList.contains("open")) {
+        menu.classList.remove("open"); // Close the menu
+        setTimeout(() => {
+            menu.classList.add("hidden"); // Hide it after the slide-out animation
+        }, 500); // Match this timeout with the transition duration
+    } else {
+        menu.classList.remove("hidden"); // Show the menu
+        setTimeout(() => {
+            menu.classList.add("open"); // Slide in
+        }, 10); // Delay to ensure the hidden class is removed before applying open
+    }
+}
+
+
+
+    </script>
     <script>
         const mainDiv = document.querySelector('.main-div');
         mainDiv.style.backgroundImage = "url('assets/ServicesGsapImg1.png')"; 
@@ -598,6 +765,143 @@ img {
             });
         });
     </script>
+
+  <script>
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+  
+    // Select all heading elements (e.g., with a class of "heading")
+    const constantheadings = document.querySelectorAll(".constantheading");
+  
+    // Loop through each heading element and create a ScrollTrigger animation
+    constantheadings.forEach((constantheadings) => {
+      // Create a timeline for each heading
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: constantheadings, // Element to watch for scroll position
+          start: "top 80%", // Start animation when the top of the element reaches 80% of the viewport
+          end: "bottom 5%", // End animation when the bottom of the element reaches 20% of the viewport
+          toggleActions: "play none none reverse", // Play animation on scroll, reverse when scrolling back up
+          scrub: true, // Smoothly link animation to scroll
+        },
+      });
+  
+      // Animation to bring the heading in from the left
+      timeline.from(constantheadings, {
+        x: -1000, // Start position (move from left)
+        duration: 1, // Animation duration
+        ease: "power2.out", // Easing for smooth animation
+      });
+   // Animation to move the heading completely off-screen to the right
+ 
+    
+    
+    });
+  </script>
+  
+  
+<script>
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate the heading from the left
+    gsap.from(".subheading", {
+    x: -200, // Start position to the left
+    opacity: 0, // Start with 0 opacity
+    duration: 0.5, // Animation duration
+    ease: "power2.out", // Smooth easing effect
+    scrollTrigger: {
+        trigger: ".subheading", // Element that triggers the animation
+        start: "top 80%", // Trigger when the top of the element reaches 80% of the viewport
+        end: "bottom 80%", // End when the bottom reaches 80% of the viewport
+        toggleActions: "play play play reverse", // Play when entering, reverse when exiting
+        markers: false // Set to true to show debug markers
+    }
+});
+
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      gsap.registerPlugin(ScrollTrigger);
+  
+      gsap.from(".fade-in-text", {
+        opacity: 0,
+        duration: 2,
+        ease: "power2.out",
+        y: 10,
+        scrollTrigger: {
+          trigger: ".fade-in-text",
+          start: "top 80%",
+          toggleActions: "play none play reverse",
+        },
+      });
+    });
+  </script>
+  
+
+<script>
+    gsap.from(".fade-in-logo", {
+    opacity: 0,
+    duration: 2, // Adjust the duration for slower or faster fade-in
+    ease: "power2.out",
+    y: -5, // Optional: Add a slight upward movement
+    scrollTrigger: {
+        trigger: ".fade-in-logo",
+        start: "top 80%", // When the top of the element reaches 80% of the viewport
+        toggleActions: "play none none none",
+    }
+   
+});
+
+</script>
+<script>
+    gsap.from(".fade-in-bar", {
+    opacity: 0,
+    duration: 2, // Adjust the duration for slower or faster fade-in
+    ease: "power2.out",
+    x: 15, // Optional: Add a slight upward movement
+    scrollTrigger: {
+        trigger: ".fade-in-bar",
+        start: "top 80%", // When the top of the element reaches 80% of the viewport
+        toggleActions: "play none none none",
+    }
+   
+});
+
+</script>
+<script>
+    gsap.from(".fade-in-icons", {
+    opacity: 0,
+    duration: 2, // Adjust the duration for slower or faster fade-in
+    ease: "power2.out",
+    x: -15, // Optional: Add a slight upward movement
+    scrollTrigger: {
+        trigger: ".fade-in-icons",
+        start: "top 80%", // When the top of the element reaches 80% of the viewport
+        toggleActions: "play none none none",
+    }
+   
+});
+
+</script>
+<script>
+    gsap.from(".fade-in-images", {
+    opacity: 0,
+    duration: 2, // Adjust the duration for slower or faster fade-in
+    ease: "power2.out",
+    x: 10, // Optional: Add a slight upward movement
+    scrollTrigger: {
+        trigger: ".fade-in-images",
+        start: "top 80%", // When the top of the element reaches 80% of the viewport
+        toggleActions: "play none none none",
+    }
+   
+});
+
+</script>
+  
 <script>
     const sliderWrapper = document.querySelector('.continuous-slider-wrapper');
     let isScrolling = false;
@@ -629,8 +933,54 @@ img {
     sliderWrapper.addEventListener('wheel', scrollSlider);
 </script>
 
+<script>
+    // Import GSAP and ScrollToPlugin if not already done
+import gsap from 'gsap';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
+gsap.registerPlugin(ScrollToPlugin);
 
+// Select the button and sections
+const scrollButton = document.getElementById('scrollButton');
+const sections = document.querySelectorAll('.section');
+
+// Add click event listener to the button
+scrollButton.addEventListener('click', () => {
+    const currentSection = Array.from(sections).findIndex(section => {
+        return section.getBoundingClientRect().top >= 0;
+    });
+
+    const nextSection = currentSection + 1;
+
+    // Ensure the next section is within bounds
+    if (nextSection < sections.length) {
+        gsap.to(window, {
+            scrollTo: sections[nextSection],
+            duration: 1, // Animation duration
+            ease: "power2.out" // Easing function
+        });
+    }
+});
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const scrollButton = document.querySelector('a[href="#home"]');
+
+        scrollButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor click behavior
+            const targetId = this.getAttribute('href'); // Get the target section ID
+            const targetSection = document.querySelector(targetId); // Select the target section
+
+            // Scroll to the target section with an offset for fixed headers
+            window.scrollTo({
+                top: targetSection.offsetTop, // Scroll to the top of the section
+                behavior: 'smooth' // Smooth scrolling
+            });
+        });
+    });
+</script>
 
     
     
