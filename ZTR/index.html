@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Gulzar&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap" rel="stylesheet">
-    <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+   <script>
         const hoverDiv = document.querySelector('.hover-effect');
         const popupTooltip = hoverDiv.querySelector('.popup-tooltip');
     
@@ -22,7 +24,16 @@
             popupTooltip.classList.add('hidden');
         });
     </script>
+        <style>
+            body {
+                overflow-y: scroll; /* Allow scrolling */
+                height: 200vh; /* Extend the page height for scrolling effect */
+            }
     
+            .fade-in-text {
+                position: relative; /* Needed for the scroll trigger */
+            }
+        </style>
   <style>
     #full-screen-menu {
     transform: translateX(100%); /* Start off-screen to the right */
@@ -146,22 +157,82 @@ body {
    
     </style>
     <style>
-     .about-mv {
-    background-color: #333; /* Fallback color */
-    background-image: url('assets/HomeImg1.png'); /* Default for desktop */
-    background-size: cover;
+  /* Mobile view (default) */
+.about-mv {
+    background-image: url('assets/aboutmv.png');
+    background-size: 100%;
     background-position: center;
-    position: relative;
+    animation: zoomOut 10s ease-in-out infinite alternate;
 }
 
-@media (max-width: 500px) {
+/* Desktop view */
+@media (min-width: 768px) {
     .about-mv {
-        background-image: url('assets/aboutmv.png'); /* Background for mobile */
+        background-image: url('assets/HomeImg1.png');
+        background-size: 100%;
+        background-position: center;
+        animation: zoomInOut 15s ease-in-out infinite alternate;
     }
-    html {
-    scroll-behavior: smooth;
 }
+
+/* Keyframes for zooming the background in and out */
+@keyframes zoomInOut {
+    0% {
+        background-size: 120%;
+    }
+    100% {
+        background-size: 150%;
+    }
 }
+
+@keyframes zoomOut {
+    0% {
+        background-size: 150%;
+    }
+    100% {
+        background-size: 200%;
+    }
+}
+
+ </style>
+    <style>
+     /* Mobile view (default) */
+.getintouch-mv {
+    background-image: url('assets/getintouchmv.png');
+    background-size: 100%;
+    background-position: center;
+    animation: zoomOut 10s ease-in-out infinite alternate;
+}
+
+/* Desktop view */
+@media (min-width: 768px) {
+    .getintouch-mv {
+        background-image: url('assets/getintouchdv.png');
+        background-size: 100%;
+        background-position: center;
+        animation: zoomInOut 15s ease-in-out infinite alternate;
+    }
+}
+
+/* Keyframes for zooming the background in and out */
+@keyframes zoomInOut {
+    0% {
+        background-size: 120%;
+    }
+    100% {
+        background-size: 150%;
+    }
+}
+
+@keyframes zoomOut {
+    0% {
+        background-size: 150%;
+    }
+    100% {
+        background-size: 200%;
+    }
+}
+
     </style>
 </head>
 
@@ -169,19 +240,19 @@ body {
 </html>
 
 
-<body>
+<body class="sm:w-screen md:w-screen">
     <main>
         <section id="home" class="sm:w-screen md:w-screen">
-            <div class= "  about-mv text-white h-screen font-hanken flex flex-col items-center justify-center sm:w-screen md:w-screen "
-            style="background-image: url('assets/HomeImg1.png'); background-size: cover; background-position: center; position: relative;">
+            <div class= "  about-mv zoom-in-background text-white h-screen font-hanken flex flex-col items-center justify-center sm:w-screen md:w-screen "
+            style="background-size: cover; background-position: center; position: relative;">
             <div class="absolute inset-0 bg-black bg-opacity-75"></div>
 
                 <div class="z-10 w-full justify-between flex flex-col">
                     <div>
-                        <nav class="w-full z-20 ">
+                        <nav class="w-full z-20 px-4 ">
                             <div
-                                class="absolute top-0 left-0 w-full z-10 text-white font-hanken flex justify-between   sm:px-4 md:px-10 sm:py-4 md:py-6 bg-transparent">
-                                <div class="hidden md:flex gap-4 text-center pt-4 fade-in-logo">
+                                class="absolute top-0 left-0 w-full z-10 text-white font-hanken flex justify-between   sm:px-12 md:px-10 sm:py-4 md:py-6 bg-transparent">
+                                <div class="hidden md:flex gap-4 text-center pt-4 ">
                                     <div class="flex gap-2">
                                         <div >
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -191,7 +262,7 @@ body {
                                             </svg>
 
                                         </div>
-                                        <div class="text-xs">600 543628</div>
+                                        <div class="text-sm">600 543628</div>
                                     </div>
                                     <div class="flex gap-2">
                                         <div >
@@ -204,15 +275,15 @@ body {
                                             </svg>
 
                                         </div>
-                                        <div class="text-xs">Dubai, U.A.E</div>
+                                        <div class="text-sm">Dubai, U.A.E</div>
                                     </div>
                                 </div>
                                 <div class="mr-">
-                                    <img src="assets/LogoZRT.png" class="w-36 fade-in-logo md:w-52 h-10 md:h-10 sm:mr-0 md:mr-24 " alt="Logo">
+                                    <img src="assets/LogoZRT.png" class="w-36  md:w-52 h-10 md:h-10 sm:mr-0 md:mr-24 " alt="Logo">
                                 </div>
                                 <div class="relative">
                                     <!-- Bar Icon -->
-                                    <div class="fade-in-logo cursor-pointer" onclick="toggleMenu()">
+                                    <div class=" cursor-pointer" onclick="toggleMenu()">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#06BAB2]">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                         </svg>
@@ -250,7 +321,7 @@ body {
                                                     </svg>
         
                                                 </div>
-                                                <div class="text-xs ">600 543628</div>
+                                                <div class="text-sm ">600 543628</div>
                                             </div>
                                             <div class="flex gap-2 hover:scale-105 transition-transform duration-700">
                                                 <div >
@@ -263,7 +334,7 @@ body {
                                                     </svg>
         
                                                 </div>
-                                                <div class="text-xs">Dubai, U.A.E</div>
+                                                <div class="text-sm">Dubai, U.A.E</div>
                                             </div>
                                         </div>
                                         </div>
@@ -276,21 +347,21 @@ body {
                         </nav>
                     </div>
                     <div class="ml-12 mt-24 md:mt-80 " style="font-family: 'Hanken Grotesk', sans-serif;">
-                        <div class="text-base font-bold fade-in-text">WELCOME TO ZRT CONTRACTING</div>
+                        <div class="text-base mb-6 fade-in-first">WELCOME TO ZRT CONTRACTING</div>
                         <div class="text-5xl md:text-6xl fade-in-text mt-3" style="font-family: 'Gulzar', sans-serif;">You
                             Dream,<br />
                             We Build</div>
-                        <div class="p-1 border border-1 text-sm fade-in-text rounded-full mt-4 px-8 w-32 ">EXPLORE</div>
-                    </div>
+                            <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8 w-32 explore-button">EXPLORE</div>
+                        </div>
                     <div class="w-full flex justify-between items-center p-3 mt-2">
                         <div class="w-20 h-10 hidden md:block fade-in-text">
                             <img src="assets/WpLogo1.png" alt="Logo" />
                         </div>
                         <div class="hidden md:flex fade-in-arrow fade-in-logo">
                             <div id="section1" class="section">
-                                <button id="scrollButton" class="border border-1 border-[#06BAB2] rounded-3xl py-3 px-1">
+                                <button id="scrollButton" class="border border-1 border-[#06BAB2] rounded-3xl py-2 px-0.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                        stroke="currentColor" class="w-6 h-6 text-white">
+                                        stroke="currentColor" class="w-5 h-5 text-white">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
                                     </svg>
@@ -328,7 +399,7 @@ body {
                     <div>
                         <img src="assets/LogoZRT.png" class="w-36 md:w-52 h-10 md:h-10" alt="Logo" />
                     </div>
-                    <div class="hidden md:flex justify-between gap-16 text-sm">
+                    <div class="hidden md:flex justify-between gap-16  items-center text-sm">
                         <div>
                             <a href="#home" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">HOME</a>
                         </div>
@@ -359,10 +430,10 @@ body {
                         style="background-image: url('assets/AboutHome.png'); background-size: cover; background-position: center; position: relative;">
                         <div class="absolute inset-0 bg-black bg-opacity-80"></div>
                         <div class="flex md:flex-col">
-                            <div class="relative z-10 flex flex-col-reverse md:flex-col my-16 md:my-44 md:mt-72 px-4 md:px-32 justify-between">
+                            <div class="relative z-10 flex flex-col-reverse md:flex-col my-16 md:my-24 md:mt-48 px-4 md:px-24 justify-between">
                                 <div class="flex flex-col md:flex-row">
                                     <div class="text-white gap-4 sm:order-2 md:order-1 mt-0 md:mt-8 mx-0 md:mx-10">
-                                        <h1 class="text-5xl md:text-6xl text-center md:text-left fade-in-icons" style="font-family: 'Gulzar', sans-serif;">About</h1>
+                                        <h1 class="text-5xl md:text-6xl text-center md:text-left fade-in-text" style="font-family: 'Gulzar', sans-serif;">About</h1>
                                         <div class="text-sm fade-in-icons">
                                             <div class="text-sm mt-6 text-center md:text-left">
                                                 UBBS is vastly experienced at working across sectors Residential, Hospitality
@@ -389,9 +460,9 @@ body {
                                     </div>
                                 </div>
                                 <div class="hidden md:flex justify-center">
-                                    <button class="border border-1 border-[#06BAB2] rounded-3xl py-3 px-1">
+                                    <button class="border border-1 border-[#06BAB2] rounded-3xl py-2 px-0.5">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                            stroke="currentColor" class="w-6 h-6 text-white">
+                                            stroke="currentColor" class="w-5 h-5 text-white">
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
                                         </svg>
@@ -410,7 +481,7 @@ body {
                     style="background-image: url('assets/ProjectsHome.png'); background-size: cover; background-position: center; position: relative;">
                     <div class="w-full px-12 md:px-36 py-9">
                         <div>
-                            <div class="text-5xl text-left  fade-in-icons" style="font-family: 'Gulzar', sans-serif; ">Projects</div>
+                            <div class="text-5xl text-left  fade-in-text" style="font-family: 'Gulzar', sans-serif; ">Projects</div>
                             <div class="pt-6 font-hanken text-xl sub fade-in-icons" style="font-family: 'Hanken Grotesk', sans-serif;">
                                 Top Contracting Company in Dubai,<br /> UAE Region (Founded In 1999),
                             </div>
@@ -512,7 +583,7 @@ body {
         <section class="sm:w-screen md:w-screen">
 <div class="sm:w-screen md:w-screen">
     <div class="px-12 md:px-36  mt-10 md:mt-10 w-full">
-        <div class="text-5xl text-left fade-in-icons " style="font-family: 'Gulzar', sans-serif;">Our Services</div>
+        <div class="text-5xl text-left fade-in-text " style="font-family: 'Gulzar', sans-serif;">Our Services</div>
         <div class="flex flex-row md:flex-row fade-in-text sm:gap-2 md:gap-8  mr-96  ">
         <div class="flex flex-col  sm:gap-2  md:gap-8 md:flex-row">
         <div class="p-1 border border-1 border-black text-black  text-xs rounded-full mt-4 px-6 text-nowrap ">Interior Design Services</div>
@@ -540,7 +611,7 @@ body {
         <section class="sm:w-screen md:w-screen">
             <div class="sm:w-screen md:w-screen">
                 <div class="flex fade-in-text justify-between px-12 md:px-36 mt-20">
-                <div class="text-5xl text-left text-nowrap heading " style="font-family: 'Gulzar', sans-serif; "> Latest News</div>
+                <div class="text-5xl text-left text-nowrap fade-in-text " style="font-family: 'Gulzar', sans-serif; "> Latest News</div>
                 <div class="text-base mt-4 underline text-black  font-hanken">VIEW HOME</div>
             </div>
             <div class="relative mx-10 overflow-hidden mt-10 mb-10 h-1/4">
@@ -593,11 +664,11 @@ body {
         </section>
         <section class="sm:w-screen md:w-screen">
             
-            <div class=" sm:w-screen md:w-screen zoom-in-background bg-cover bg-center" style="background-image: url('assets/NewsImg.png');">
+            <div class=" getintouch-mv sm:w-screen md:w-screen zoom-in-background bg-cover bg-center" style="background-size: cover; background-position: center; position: relative;">
             
                 <div class="bg-black bg-opacity-75 min-h-screen flex items-center justify-center">
                     <div class=" p-8 rounded-lg shadow-lg w-full max-w-3xl">
-                        <div class="text-5xl text-center fade-in-logo text-white" style="font-family: 'Gulzar', sans-serif; "> Get In Touch</div>
+                        <div class="text-5xl text-center fade-in-text text-white" style="font-family: 'Gulzar', sans-serif; "> Get In Touch</div>
                         <form action="#" method="POST" class="space-y-6 fade-in-text">
                             <div class="space-y-6 p-4 rounded-md">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -822,23 +893,7 @@ body {
 
 </script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      gsap.registerPlugin(ScrollTrigger);
-  
-      gsap.from(".fade-in-text", {
-        opacity: 0,
-        duration: 2,
-        ease: "power2.out",
-        y: 10,
-        scrollTrigger: {
-          trigger: ".fade-in-text",
-          start: "top 80%",
-          toggleActions: "play none play reverse",
-        },
-      });
-    });
-  </script>
+
   
 
 <script>
@@ -964,25 +1019,66 @@ scrollButton.addEventListener('click', () => {
 
 </script>
 
+
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const scrollButton = document.querySelector('a[href="#home"]');
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
 
-        scrollButton.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor click behavior
-            const targetId = this.getAttribute('href'); // Get the target section ID
-            const targetSection = document.querySelector(targetId); // Select the target section
+    document.addEventListener("DOMContentLoaded", function () {
+        // Animate the first text
+        gsap.from(".fade-in-first", {
+            y: 50,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".fade-in-first",
+                start: "top 80%",
+                toggleActions: "play none none none",
+            }
+        });
 
-            // Scroll to the target section with an offset for fixed headers
-            window.scrollTo({
-                top: targetSection.offsetTop, // Scroll to the top of the section
-                behavior: 'smooth' // Smooth scrolling
-            });
+        // Animate the second text with a delay
+        gsap.from(".fade-in-text", {
+            y: 50,
+            opacity: 0,
+            duration: 2,
+            ease: "power3.out",
+            delay: 1, // Delay before the second text appears
+            scrollTrigger: {
+                trigger: ".fade-in-text",
+                start: "top 80%",
+                toggleActions: "play none none none",
+            }
         });
     });
 </script>
+<script>
+    // Select the button
+    const exploreButton = document.querySelector('.explore-button');
+  
+    // Hover animation
+    exploreButton.addEventListener('mouseenter', () => {
+      gsap.to(exploreButton, {
+        scale: 1.1, // Scale up the button for the pop-up effect
+        duration: 0.3, // Animation duration
+        ease: "power1.out", // Easing function for smooth animation
+      });
+      exploreButton.style.fontWeight = 'bold'; // Change text to bold
+    });
+  
+    // Revert animation on mouse leave
+    exploreButton.addEventListener('mouseleave', () => {
+      gsap.to(exploreButton, {
+        scale: 1, // Scale back to original size
+        duration: 0.3,
+        ease: "power1.out",
+      });
+      exploreButton.style.fontWeight = 'normal'; // Revert text to normal
+    });
+  </script>
 
-    
     
 </body>
 
