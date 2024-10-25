@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Title Here</title>
+    <title>Elite & ZTR</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/3.3.0/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gulzar&display=swap" rel="stylesheet">
@@ -128,34 +128,105 @@ body {
 
     </style>
      <style>
-     .main-div {
+   .main-div {
     width: 100%; 
-    height:600px; 
+    height: 600px; 
     background-image: url('assets/ServicesGsapImg1.png'); 
     background-size: cover;
     display: flex;
-    align-items: normal;
+    align-items: flex-start; /* Align items at the start vertically */
     justify-content: flex-start;
     position: relative;
-    overflow: hidden;
+    border-top: black;
+    border-radius: 1px;
+    overflow: hidden; /* Ensure overflow is hidden for the sliding effect */
 }
 
 .inner-div {
     width: 100%; 
     height: 100%; 
-    margin: 0px; 
+    margin: 0; 
     padding: 100px; 
     background-color: rgba(0, 0, 0, 0.6); 
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start; /* Align items at the start vertically */
+    justify-content: flex-start; /* Align items at the start horizontally */
     cursor: pointer; 
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-left: 1px solid rgb(255, 252, 252); /* Apply border only to the left */
+    border-right: 1px solid rgba(255, 255, 255, 0.4); /* Apply border only to the right */
+    border-top: none; /* Remove top border */
+    border-bottom: none; /* Remove bottom border */
     border-radius: 1px; 
+    position: relative; /* Needed for absolute positioning of child elements */
+    transition: transform 0.5s ease; /* Transition for transform effect */
 }
 
-   
+/* The effect when hovering */
+.inner-div:hover {
+    transform: translateY(-20px); /* Move the inner div up by 20px on hover */
+    background: linear-gradient(to bottom, rgb(255, 255, 255) 10%, rgba(255, 255, 255, 0) 60%, rgba(0, 0, 0, 0.6) 100%); /* Fading white background to original color */
+}
+
+.inner-div .transition-opacity {
+    transition: color 0.3s ease; /* Transition for text color */
+    color: white; /* Default text color */
+}
+
+/* Show the text on hover and change color */
+.inner-div:hover .transition-opacity {
+    color: black; /* Change text color to black on hover */
+}
+
+.inner-div .absolute {
+    transition: opacity 0.3s ease; /* Transition for opacity */
+    opacity: 0; /* Hide text by default */
+}
+
+/* Show the text on hover */
+.inner-div:hover .absolute {
+    opacity: 1; /* Make the text visible on hover */
+}
+
     </style>
+        <style>
+            /* Mobile view (default) */
+          .home-mv {
+              background-image: url('assets/homemv.png');
+              background-size: 100%;
+              background-position: center;
+              animation: zoomOut 10s ease-in-out infinite alternate;
+          }
+          
+          /* Desktop view */
+          @media (min-width: 768px) {
+              .home-mv {
+                  background-image: url('assets/HomeImg1.png');
+                  background-size: 100%;
+                  background-position: center;
+                  animation: zoomInOut 15s ease-in-out infinite alternate;
+              }
+          }
+          
+          /* Keyframes for zooming the background in and out */
+          @keyframes zoomInOut {
+              0% {
+                  background-size: 120%;
+              }
+              100% {
+                  background-size: 150%;
+              }
+          }
+          
+          @keyframes zoomOut {
+              0% {
+                  background-size: 150%;
+              }
+              100% {
+                  background-size: 200%;
+              }
+          }
+          
+           </style>
     <style>
   /* Mobile view (default) */
 .about-mv {
@@ -168,7 +239,7 @@ body {
 /* Desktop view */
 @media (min-width: 768px) {
     .about-mv {
-        background-image: url('assets/HomeImg1.png');
+        background-image: url('assets/AboutHome.png');
         background-size: 100%;
         background-position: center;
         animation: zoomInOut 15s ease-in-out infinite alternate;
@@ -242,17 +313,17 @@ body {
 
 <body class="sm:w-screen md:w-screen">
     <main>
-        <section id="home" class="sm:w-screen md:w-screen">
-            <div class= "  about-mv zoom-in-background text-white h-screen font-hanken flex flex-col items-center justify-center sm:w-screen md:w-screen "
+        <section class=" sm:w-screen md:w-screen section" id="section1" >
+            <div class= "  home-mv zoom-in-background text-white h-screen font-hanken flex flex-col items-center justify-center sm:w-screen md:w-screen "
             style="background-size: cover; background-position: center; position: relative;">
-            <div class="absolute inset-0 bg-black bg-opacity-75"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-75 z-index"></div>
 
-                <div class="z-10 w-full justify-between flex flex-col">
+                <div class="z-10 w-full justify-between flex flex-col ">
                     <div>
-                        <nav class="w-full z-20 px-4 ">
+                        <nav class="w-full z-20 ">
                             <div
-                                class="absolute top-0 left-0 w-full z-10 text-white font-hanken flex justify-between   sm:px-12 md:px-10 sm:py-4 md:py-6 bg-transparent">
-                                <div class="hidden md:flex gap-4 text-center pt-4 ">
+                                class="absolute top-0 left-0 w-full z-10 text-white  flex justify-between     py-4 md:py-6 bg-transparent">
+                                <div class="hidden md:flex gap-4 text-center pt-4  md:px-10">
                                     <div class="flex gap-2">
                                         <div >
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -278,19 +349,21 @@ body {
                                         <div class="text-sm">Dubai, U.A.E</div>
                                     </div>
                                 </div>
-                                <div class="mr-">
+                                <div class="ml-8 md:ml-0 mt-4 md:mt-0">
                                     <img src="assets/LogoZRT.png" class="w-36  md:w-52 h-10 md:h-10 sm:mr-0 md:mr-24 " alt="Logo">
                                 </div>
-                                <div class="relative">
+                                <div class="relative mr-8 md:mr-0 mt-4 md:mt-0">
                                     <!-- Bar Icon -->
-                                    <div class=" cursor-pointer" onclick="toggleMenu()">
+                                    <div class=" cursor-pointer  md:px-14" onclick="toggleMenu()">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-[#06BAB2]">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                         </svg>
                                     </div>
                                     
                                     <!-- Full-screen Menu Overlay -->
-                                    <div id="full-screen-menu" class="fixed inset-0 hidden bg-black bg-opacity-70 flex justify-end z-50">
+                                    <div id="overlay" class="fixed inset-0 hidden bg-black bg-opacity-70 z-40"></div>
+
+                                    <div id="full-screen-menu" class="fixed inset-0 hidden  flex justify-end z-50">
                                         <div class="w-full flex sm:flex-col md:flex-col sm:w-2/3 md:w-1/3 h-full relative bg-cover bg-center" style="background-image: url('assets/BarImg.png');">
                                             <!-- Close Button -->
                                             <div class="absolute top-2 right-4 text-white left-72 items-center ">
@@ -311,7 +384,7 @@ body {
                                                 <!-- Add more menu items as needed -->
                                             </ul>
                                         </div>
-                                        <div class="hidden md:flex gap-4 text-left mt-20 ml-10 sm:text-xl md:text-xl sm:ml-20 text-white"">
+                                        <div class="hidden md:flex gap-4 text-left mt-20 ml-10 sm:text-xl md:text-xl sm:ml-20 text-white">
                                             <div class="flex gap-2 hover:scale-105 transition-transform duration-700">
                                                 <div >
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -346,20 +419,20 @@ body {
                                 
                         </nav>
                     </div>
-                    <div class="ml-12 mt-24 md:mt-80 " style="font-family: 'Hanken Grotesk', sans-serif;">
+                    <div class=" mt-24 md:mt-80 md:px-8 ml-8 md:ml-0" style="font-family: 'Hanken Grotesk', sans-serif;">
                         <div class="text-base mb-6 fade-in-first">WELCOME TO ZRT CONTRACTING</div>
                         <div class="text-5xl md:text-6xl fade-in-text mt-3" style="font-family: 'Gulzar', sans-serif;">You
                             Dream,<br />
                             We Build</div>
-                            <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8 w-32 explore-button">EXPLORE</div>
+                            <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8 w-32 explore-button  transition-transform duration-100">EXPLORE</div>
                         </div>
-                    <div class="w-full flex justify-between items-center p-3 mt-2">
+                    <div class="w-full flex justify-between items-center p-3 mt-2  ">
                         <div class="w-20 h-10 hidden md:block fade-in-text">
                             <img src="assets/WpLogo1.png" alt="Logo" />
                         </div>
-                        <div class="hidden md:flex fade-in-arrow fade-in-logo">
-                            <div id="section1" class="section">
-                                <button id="scrollButton" class="border border-1 border-[#06BAB2] rounded-3xl py-2 px-0.5">
+                        <div class="hidden md:flex">
+                            <div id="scrollButton1" class="scrollbutton1 hidden md:flex justify-center">
+                                <button  class="border border-1 border-[#06BAB2] rounded-3xl py-2 px-0.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                         stroke="currentColor" class="w-5 h-5 text-white">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -368,7 +441,7 @@ body {
                                 </button>
                             </div>
                         </div>
-                        <div class="flex flex-row md:flex-col   mr-2 md:mr-8 ml-10 md:ml-0 gap-6 md:gap-3 mt-4 md:mt-0 mb-0 md:mb-40">
+                        <div class="flex flex-row md:flex-col ml-6 md:ml-0  md:px-8 gap-6 md:gap-3 mt-4 md:mt-0 mb-0 md:mb-40">
                             <div class="border border-[#06BAB2] rounded-full w-9 h-9   ">
                                 <img class="p-2 w-full h-full   hover:scale-105 transition-transform duration-1000" src="assets/fb.png" alt="Twitter" />
                                 
@@ -393,30 +466,30 @@ body {
                 </div>
             </div>
         </section>
-        <section class="sm:w-screen md:w-screen">
-            <div class="section2 sm:w-screen md:w-screen">
-                <div class="top-0 left-0 w-full z-10 text-white font-hanken flex justify-between p-4 bg-black md:pr-12 md:px-4">
+        <section class="sm:w-screen md:w-screen section" id="section2">
+            <div class="sm:w-screen md:w-screen">
+                <div class="top-0 left-0 w-full z-10 text-white font-hanken flex justify-between p-4 bg-black md:pr-12 px-6 md:px-4">
                     <div>
                         <img src="assets/LogoZRT.png" class="w-36 md:w-52 h-10 md:h-10" alt="Logo" />
                     </div>
                     <div class="hidden md:flex justify-between gap-16  items-center text-sm">
                         <div>
-                            <a href="#home" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">HOME</a>
+                            <a href="#section1" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">HOME</a>
                         </div>
                         <div>
-                            <a href="#who-we-are" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">WHO WE ARE</a>
+                            <a href="#section2" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">WHO WE ARE</a>
                         </div>
                         <div>
-                            <a href="#projects" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">PROJECTS</a>
+                            <a href="#section3" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">PROJECTS</a>
                         </div>
                         <div>
-                            <a href="#services" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">SERVICES</a>
+                            <a href="#section4" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">SERVICES</a>
                         </div>
                         <div>
-                            <a href="#news" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">NEWS</a>
+                            <a href="#section5" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">NEWS</a>
                         </div>
                         <div>
-                            <a href="#contact" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">CONTACT</a>
+                            <a href="#section6" class="hover:text-white hover:bg-[#06BAB2] transition-colors duration-300 px-3 py-1 rounded">CONTACT</a>
                         </div>
                     </div>
                     <div class="block md:hidden">
@@ -426,16 +499,16 @@ body {
                     </div>
                 </div>
                 <div>
-                    <div class="about-mv text-white flex flex-col items-center justify-center"
+                    <div class="text-white flex flex-col items-center justify-center"
                         style="background-image: url('assets/AboutHome.png'); background-size: cover; background-position: center; position: relative;">
                         <div class="absolute inset-0 bg-black bg-opacity-80"></div>
                         <div class="flex md:flex-col">
-                            <div class="relative z-10 flex flex-col-reverse md:flex-col my-16 md:my-24 md:mt-48 px-4 md:px-24 justify-between">
-                                <div class="flex flex-col md:flex-row">
-                                    <div class="text-white gap-4 sm:order-2 md:order-1 mt-0 md:mt-8 mx-0 md:mx-10">
-                                        <h1 class="text-5xl md:text-6xl text-center md:text-left fade-in-text" style="font-family: 'Gulzar', sans-serif;">About</h1>
+                            <div class="relative z-10 flex flex-col-reverse md:flex-col my-16 md:my-24 md:mt-48 px-8 md:px-12 justify-between">
+                                <div class="flex flex-col md:flex-row justify-between">
+                                    <div class="text-white gap-4 sm:order-2 md:order-1 mt-0 md:mt-8">
+                                        <h1 class="text-5xl md:text-6xl text-left fade-in-text mb-8 md:mb-4" style="font-family: 'Gulzar', sans-serif;">About</h1>
                                         <div class="text-sm fade-in-icons">
-                                            <div class="text-sm mt-6 text-center md:text-left">
+                                            <div class="text-sm my-4 md:my-6 text-left mb-8 md:mb-0" style="font-family: 'hanken', sans-serif;">
                                                 UBBS is vastly experienced at working across sectors Residential, Hospitality
                                                 <span class="hidden md:inline"><br /></span>
                                                 and Commercial, and across disciplines Architecture and Interior Design. We
@@ -444,7 +517,7 @@ body {
                                                 <span class="hidden md:inline"><br /></span>
                                                 achieving the best possible end result. Energy efficiency and sustainability
                                                 <span class="hidden md:inline"><br /></span>
- issues are
+                                                issues are
                                                 given serious consideration at the outset of the design process,
                                                 <span class="hidden md:inline"><br /></span>
                                                 in particular
@@ -452,19 +525,16 @@ body {
                                                 new-build projects.
                                             </div>
                                         </div>
-                                        <div class="hidden md:block text-base mt-2 underline text-center md:text-left font-hanken">VIEW HOME
-                                        </div>
+                                        <div class="hidden md:block text-base mt-2 underline text-center md:text-left font-hanken hover:font-bold">VIEW HOME</div>
                                     </div>
-                                    <div class="w-full sm:w-100 md:w-1/2 hover:scale-105 transition-transform duration-300 fade-in-bar image-container h-auto mb-4 md:mb-56 sm:order-1 md:order-2">
+                                    <div class="w-full sm:w-100 md:w-1/2 hover:scale-105 transition-transform duration-300 fade-in-bar image-container h-auto mb-20 md:mb-56 sm:order-1 md:mr-4 md:order-2">
                                         <img src="assets/AboutHome.png" alt="About UBBS" class="w-100" />
                                     </div>
                                 </div>
-                                <div class="hidden md:flex justify-center">
-                                    <button class="border border-1 border-[#06BAB2] rounded-3xl py-2 px-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                            stroke="currentColor" class="w-5 h-5 text-white">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
+                                <div id="scrollButton2" class="scrollbutton2 hidden md:flex justify-center">
+                                    <button class="border border-1 border-[#06BAB2] rounded-3xl py-2 px-0.5" onclick="document.getElementById('section3').scrollIntoView({ behavior: 'smooth' });">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25 12 21m0 0-3.75-3.75M12 21V3" />
                                         </svg>
                                     </button>
                                 </div>
@@ -475,21 +545,23 @@ body {
             </div>
         </section>
         
-        <section class="sm:w-screen md:w-screen">
+
+        
+        <section class="sm:w-screen md:w-screen section" id="section3">
             <div class="sm:w-screen md:w-screen">
                 <div class="text-white h-screen font-hanken flex flex-col items-center justify-center"
                     style="background-image: url('assets/ProjectsHome.png'); background-size: cover; background-position: center; position: relative;">
-                    <div class="w-full px-12 md:px-36 py-9">
+                    <div class="w-full px-8 md:px-12 py-9">
                         <div>
-                            <div class="text-5xl text-left  fade-in-text" style="font-family: 'Gulzar', sans-serif; ">Projects</div>
-                            <div class="pt-6 font-hanken text-xl sub fade-in-icons" style="font-family: 'Hanken Grotesk', sans-serif;">
+                            <div class="text-5xl text-left  fade-in-first" style="font-family: 'Gulzar', sans-serif; ">Projects</div>
+                            <div class="pt-6 fade-in-text font-hanken text-xl sub " style="font-family: 'Hanken Grotesk', sans-serif;">
                                 Top Contracting Company in Dubai,<br /> UAE Region (Founded In 1999),
                             </div>
                             
                             <div class="mt-4 border-t border-1 w-full bg-white bg-opacity-50"></div>
                         </div>
                     </div>
-                    <div class="flex px-12 md:px-20 justify-between  w-screen">
+                    <div class="flex px-12 md:px-10 justify-between  w-screen">
                         <div class="hidden md:block fade-in-bar">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-12 h-12">
@@ -497,26 +569,26 @@ body {
                             </svg>
 
                         </div>
-                        <div class="flex fade-in-text flex-row md:flex-row gap-4 mr-96">
-                            <div class="flex flex-col md:flex-row gap-4">
-                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8">
+                        <div class="flex  flex-row md:flex-row gap-12 md:gap-4 mr-96 justify-between"  style="font-family: 'Barlow', sans-serif;">
+                            <div class="flex flex-col md:flex-row gap-4 justify-between">
+                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8 explore-button hover:scale-105 transition-transform duration-duration-200 hover:font-semibold hover:border-2">
                                     Residentiality
                                 </div>
-                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8">
+                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8 hover:scale-105 transition-transform duration-duration-200 hover:font-semibold hover:border-2">
                                     Hospitality
                                 </div>
                             </div>
                             <div class="flex flex-col md:flex-row gap-4">
-                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8">
+                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8 hover:scale-105 transition-transform duration-duration-200 hover:font-semibold hover:border-2">
                                     Commercial
                                 </div>
-                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8">
+                                <div class="p-1 border border-1 text-sm rounded-full mt-4 px-8 hover:scale-105 transition-transform duration-2000 hover:font-semibold hover:border-2">
                                     Retail
                                 </div>
                             </div>
                         </div>
                         
-                        <div class=" hidden md:flex text-base mt-4 underline fade-in-text  font-hanken">VIEW HOME</div>
+                        <div class=" hidden md:flex text-base mt-4 underline fade-in-text  font-hanken hover:scale-105 transition-transform duration-2000 hover:font-semibold ">VIEW HOME</div>
                         <div class="hidden md:block fade-in-icons">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="w-12 h-12">
@@ -580,89 +652,118 @@ body {
                 </div>
             </div>
         </section>
-        <section class="sm:w-screen md:w-screen">
+        <section class="sm:w-screen md:w-screen section" id="section4">
 <div class="sm:w-screen md:w-screen">
-    <div class="px-12 md:px-36  mt-10 md:mt-10 w-full">
+    <div class="px-8 md:px-12  mt-10 md:mt-28 mb-2 md:mb-3 w-full">
         <div class="text-5xl text-left fade-in-text " style="font-family: 'Gulzar', sans-serif;">Our Services</div>
-        <div class="flex flex-row md:flex-row fade-in-text sm:gap-2 md:gap-8  mr-96  ">
-        <div class="flex flex-col  sm:gap-2  md:gap-8 md:flex-row">
-        <div class="p-1 border border-1 border-black text-black  text-xs rounded-full mt-4 px-6 text-nowrap ">Interior Design Services</div>
-        <div class="  p-1 border border-1 border-black text-black  text-xs rounded-full mt-4 px-6 text-nowrap   ">Gray Structure</div>
+        <div class="flex flex-row md:flex-row   md:gap-8 mr:4 mr-96  ">
+        <div class="flex flex-col  sm:gap-2  md:gap-8 md:flex-row pr-4 md:pr-0">
+        <div class="p-1 border border-1 border-black text-black  text-xs rounded-full mt-4 px-6 text-nowrap hover:scale-105 transition-transform duration-500 hover:font-semibold hover:border-2 ">Interior Design Services</div>
+        <div class="  p-1 border border-1 border-black text-black  text-xs rounded-full mt-4 px-6 text-nowrap hover:scale-105 transition-transform duration-500 hover:font-semibold hover:border-2   ">Gray Structure</div>
 
-        <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6 text-nowrap   ">Refurbishment</div>
+        <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6 text-nowrap hover:scale-105 transition-transform duration-500 hover:font-semibold hover:border-2   ">Refurbishment</div>
        </div>
        <div class="flex flex-col  sm:gap-2 md:gap-8 md:flex-row">
-        <div class="  p-1 border border-1 border-black  text-black text-xs rounded-full mt-4 px-6  text-nowrap  ">Home Renovations</div>
-        <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6 text-nowrap   ">Turnkey Solutions</div>
-        <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6  text-nowrap   ">Joinery Works</div>
+        <div class="  p-1 border border-1 border-black  text-black text-xs rounded-full mt-4 px-6  text-nowrap hover:scale-105 transition-transform duration-500 hover:font-semibold hover:border-2  ">Home Renovations</div>
+        <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6 text-nowrap hover:scale-105 transition-transform duration-500 hover:font-semibold hover:border-2   ">Turnkey Solutions</div>
+        <div class="  p-1 border border-1  border-black text-black text-xs rounded-full mt-4 px-6  text-nowrap hover:scale-105 transition-transform duration-500 hover:font-semibold hover:border-2   ">Joinery Works</div>
     </div>
     </div>
 </div>
-<div class="main-div mt-6 w-full">
-    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ServicesGsapImg1.png">GRAY STRUCTURE</div>
-    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ProjectHome2.png">INTERIOR DESIGN SERVICES</div>
-    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ProjectHome3.png">REFURBISHEMENT</div>
-    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ProjectHome1.png">HOME RENOVATION</div>
-    <div class="inner-div text-white  text-xs font-bold " data-bg="assets/ProjectHome2.png">TURNKEY SOLUTION</div>
+
+<div class="main-div w-full mt-6" style="font-family: 'Gothic A1', sans-serif;">
+    <div class="inner-div text-white text-xs  relative group" data-bg="assets/ServicesGsapImg1.png">
+        <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
+            GRAY STRUCTURE
+        </div>
+        <div class="absolute top-0 left-0 w-full px-4 h-full flex mt-32 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Space brought to life through creativity, conceptual flair, and project expertise.
+        </div>
+    </div>
+
+    <div class="inner-div text-white text-xs  relative group" data-bg="assets/ServicesGsapImg1.png">
+        <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
+            INTERIOR DESIGN 
+        </div>
+        <div class="absolute top-0 left-0 w-full px-4 h-full flex mt-32 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Space brought to life through creativity, conceptual flair, and project expertise.
+        </div>
+    </div>
+
+    <div class="inner-div text-white text-xs  relative group" data-bg="assets/ProjectHome3.png">
+        <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
+            REFURBISHMENT
+        </div>
+        <div class="absolute top-0 left-0 w-full px-4 h-full flex mt-32 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Space brought to life through creativity, conceptual flair, and project expertise.
+        </div>
+    </div>
+
+    <div class="inner-div text-white text-xs  relative group" data-bg="assets/ProjectHome1.png">
+        <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
+            HOME RENOVATION
+        </div>
+        <div class="absolute top-0 left-0 w-full px-4 h-full flex mt-32 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Space brought to life through creativity, conceptual flair, and project expertise.
+        </div>
+    </div>
+
+    <div class="inner-div text-white text-xs  relative group" data-bg="assets/ProjectHome2.png">
+        <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
+            TURNKEY SOLUTION
+        </div>
+        <div class="absolute top-0 left-0 w-full px-4 h-full flex mt-32 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            Space brought to life through creativity, conceptual flair, and project expertise.
+        </div>
+    </div>
+
     <div class="overlay"></div>
 </div>
+
 </div>
         </section>
-        <section class="sm:w-screen md:w-screen">
+        <section class="sm:w-screen md:w-screen section" id="section5">
             <div class="sm:w-screen md:w-screen">
-                <div class="flex fade-in-text justify-between px-12 md:px-36 mt-20">
+                <div class="flex fade-in-text justify-between px-6 md:px-12 mt-20">
                 <div class="text-5xl text-left text-nowrap fade-in-text " style="font-family: 'Gulzar', sans-serif; "> Latest News</div>
-                <div class="text-base mt-4 underline text-black  font-hanken">VIEW HOME</div>
+                <div class="hidden md:block text-base mt-4 underline text-black  font-hanken">VIEW HOME</div>
             </div>
-            <div class="relative mx-10 overflow-hidden mt-10 mb-10 h-1/4">
-                <div class="flex slider-wrapper gap-3 h-80">
-                    <div class="hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4    flex-shrink-0 relative ">
-                        <img src="assets/ProjectHome2.png" alt="Slide 1" class=" h-full w-full  object-cover ">
-                        <div
-                            class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white  rounded">
-                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure
-                                Club</div>
-                            <div class=" border-gunsmoke-500  rounded-full px-3"
-                                style="     font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
+            <div class="relative mx-6 md:mx-10 overflow-hidden mt-10 mb-10 h-1/4">
+                <div class="flex sm:flex-col md:flex-row slider-wrapper gap-3 h-80 ">
+                    <div class="image-class-1 hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4 flex-shrink-0 relative">
+                        <img src="assets/ProjectHome2.png" alt="Slide 1" class="h-full w-full object-cover">
+                        <div class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white rounded">
+                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure Club</div>
+                            <div class="border-gunsmoke-500 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
                         </div>
                     </div>
-                    <div class="hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4 flex-shrink-0 relative">
-                        <img src="assets/ProjectHome3.png" alt="Slide 2" class="w-full h-full object-cover">
-                        <div
-                            class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white p rounded">
-                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure
-                                Club</div>
-                            <div class="  px-3"
-                                style=" font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
+                    <div class="image-class-2 hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4 flex-shrink-0 relative">
+                        <img src="assets/ProjectHome3.png" alt="Slide 2" class="h-full w-full object-cover">
+                        <div class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white rounded">
+                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure Club</div>
+                            <div class="border-gunsmoke-500 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
                         </div>
                     </div>
-                    <div class="hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4  flex-shrink-0 relative">
-                        <img src="assets/ProjectHome1.png" alt="Slide 3" class="w-full h-full object-cover">
-                        <div
-                            class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white p rounded">
-                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure
-                                Club</div>
-                            <div class="  px-3"
-                                style="     font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
+                    <div class="image-class-3 hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4 flex-shrink-0 relative">
+                        <img src="assets/ProjectHome1.png" alt="Slide 3" class="h-full w-full object-cover">
+                        <div class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white rounded">
+                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure Club</div>
+                            <div class="border-gunsmoke-500 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
                         </div>
-                        
                     </div>
-                    <div class="hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4   flex-shrink-0 relative">
-                        <img src="assets/ProjectHome2.png" alt="Slide 3" class="w-full h-full object-cover">
-                        <div
-                            class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white p rounded">
-                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure
-                                Club</div>
-                            <div class="  px-3"
-                                style="     font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
+                    <div class="image-class-4 hover:scale-105 transition-transform duration-1000 sm:w-1/2 md:w-1/4 flex-shrink-0 relative">
+                        <img src="assets/ProjectHome2.png" alt="Slide 4" class="h-full w-full object-cover">
+                        <div class="absolute flex flex-col bottom-4 text-sm px-2 justify-between w-full text-white rounded">
+                            <div class="px-3 pb-2" style="font-family: 'Gothic', sans-serif;">Gray Structure Club</div>
+                            <div class="border-gunsmoke-500 rounded-full px-3" style="font-family: 'Barlow', sans-serif;">10 / September / 2024</div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
+            
             </div>
         </section>
-        <section class="sm:w-screen md:w-screen">
+        <section class="sm:w-screen md:w-screen section" id="section6">
             
             <div class=" getintouch-mv sm:w-screen md:w-screen zoom-in-background bg-cover bg-center" style="background-size: cover; background-position: center; position: relative;">
             
@@ -706,34 +807,34 @@ body {
             </html>
             
         </section>
-        <section class="sm:w-screen md:w-screen">
+        <section class="sm:w-screen md:w-screen section" id="section7">
             <div class="flex flex-col bg-[#EEEDE6] sm:w-screen md:w-screen">
                 <div class="flex justify-center my-8">
                 <img src="assets/LogoZRTWhite.png" class=" w-36 md:w-64 h-10 md:h-12" alt="Logo">
             </div>
-                <div class="flex sm: flex-col md:flex-row px-10 md:px-16 justify-between text-black"style="font-family: 'Barlow', sans-serif; ">
+                <div class="flex sm: flex-col md:flex-row px-8 md:px-12 justify-between text-black"style="font-family: 'Barlow', sans-serif; ">
                     <div class="flex flex-col text-black" style="font-family: 'Barlow', sans-serif; ">
-                        <div class="font-bold text-base py-4 text-black">ABOUT ZRT CONTRACTING</div>
-                        <div class="text-sm text-black">ZRT COntracting, a subsidiary of Elite Group Holding, is a premier multi-brand dealership specializing in<br/>
+                        <div class="font-bold text-base py-4 text-black fade-in-first">ABOUT ZRT CONTRACTING</div>
+                        <div class="text-sm text-black fade-in-text">ZRT COntracting, a subsidiary of Elite Group Holding, is a premier multi-brand dealership specializing in<br/>
                              luxury automotive marques, offering an exceptional and seamless automotive experience. With <br/>
                              headquarters in Dubai, UAE, The Elite Cars’ presence extends strategically across the region, ensuring <br/>
                              accessibility and convenience for their valued clients.<br/>  The Elite Cars is not endorsed by, maintained or sponsored by any car manufacturer.</div>
-                    <div class="pt-6">Terms & Conditions | Privacy Policy</div>
+                    <div class="pt-6 fade-in-text">Terms & Conditions | Privacy Policy</div>
                         </div>
-                        <div class="flex gap-4">
+                        <div class="flex gap-8">
                         <div class=" text-black">
-                            <div class="font-bold text-base py-4 text-black">QUICK LINKS</div>
-                            <div class="text-sm text-black">Home</div>
-                            <div class="text-sm text-black"> About us </div>
-                            <div class="text-sm text-black">Services </div>
-                            <div class="text-sm text-black">Projects </div>
-                            <div class="text-sm text-black">Blogs </div>
-                            <div class="text-sm text-black">Contact Us</div>
+                            <div class="font-bold text-base py-4 text-black fade-in-first">QUICK LINKS</div>
+                            <div class="text-sm text-black fade-in-text">Home</div>
+                            <div class="text-sm text-black fade-in-text"> About us </div>
+                            <div class="text-sm text-black fade-in-text">Services </div>
+                            <div class="text-sm text-black fade-in-text">Projects </div>
+                            <div class="text-sm text-black fade-in-text">Blogs </div>
+                            <div class="text-sm text-black fade-in-text">Contact Us</div>
 
                         </div>
                         <div >
-                            <div class="font-bold text-base py-4 text-black ">CONTACT US</div>
-                            <div class="">
+                            <div class="font-bold text-base py-4 text-black fade-in-first ">CONTACT US</div>
+                            <div class=" gap-3 fade-in-text">
                               
                                 <div class="flex gap-3 py-1 text-black ">
                                     <div ><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
@@ -792,25 +893,64 @@ body {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+
     <script>
-  function toggleMenu() {
+        // Register the GSAP and ScrollTrigger plugins
+gsap.registerPlugin(ScrollTrigger);
+
+function toggleMenu() {
     const menu = document.getElementById("full-screen-menu");
-    if (menu.classList.contains("open")) {
-        menu.classList.remove("open"); // Close the menu
-        setTimeout(() => {
-            menu.classList.add("hidden"); // Hide it after the slide-out animation
-        }, 500); // Match this timeout with the transition duration
+    const overlay = document.getElementById("overlay");
+    const isOpen = menu.classList.contains("open");
+
+    if (isOpen) {
+        // Close the menu with GSAP animation
+        gsap.to(menu, {
+            x: "100%", // Move it out of the viewport
+            duration: 1.5, // Animation duration
+            ease: "power2.inOut", // Easing for smooth animation
+            onComplete: () => {
+                menu.classList.remove("open");
+                menu.classList.add("hidden");
+            }
+        });
+        // Fade out the overlay
+        gsap.to(overlay, {
+            opacity: 0,
+            duration: 1.5,
+            ease: "power2.inOut",
+            onComplete: () => {
+                overlay.classList.add("hidden");
+            }
+        });
     } else {
-        menu.classList.remove("hidden"); // Show the menu
-        setTimeout(() => {
-            menu.classList.add("open"); // Slide in
-        }, 10); // Delay to ensure the hidden class is removed before applying open
+        // Show the overlay before animating
+        overlay.classList.remove("hidden");
+        // Fade in the overlay
+        gsap.fromTo(overlay, { opacity: 0 }, { opacity: 1, duration: 1.5, ease: "power2.inOut" });
+
+        // Show the menu before animating
+        menu.classList.remove("hidden");
+        gsap.fromTo(
+            menu,
+            { x: "85%" }, // Start from outside the viewport
+            {
+                x: "0%", // Slide in to the original position
+                duration: 1.5, // Animation duration
+                ease: "power2.inOut", // Easing for smooth animation
+                onComplete: () => {
+                    menu.classList.add("open");
+                }
+            }
+        );
     }
 }
 
-
-
     </script>
+    
     <script>
         const mainDiv = document.querySelector('.main-div');
         mainDiv.style.backgroundImage = "url('assets/ServicesGsapImg1.png')"; 
@@ -897,6 +1037,8 @@ body {
   
 
 <script>
+        gsap.registerPlugin(ScrollTrigger);
+
     gsap.from(".fade-in-logo", {
     opacity: 0,
     duration: 2, // Adjust the duration for slower or faster fade-in
@@ -912,6 +1054,8 @@ body {
 
 </script>
 <script>
+        gsap.registerPlugin(ScrollTrigger);
+
     gsap.from(".fade-in-bar", {
     opacity: 0,
     duration: 2, // Adjust the duration for slower or faster fade-in
@@ -927,6 +1071,8 @@ body {
 
 </script>
 <script>
+        gsap.registerPlugin(ScrollTrigger);
+
     gsap.from(".fade-in-icons", {
     opacity: 0,
     duration: 2, // Adjust the duration for slower or faster fade-in
@@ -942,6 +1088,8 @@ body {
 
 </script>
 <script>
+        gsap.registerPlugin(ScrollTrigger);
+
     gsap.from(".fade-in-images", {
     opacity: 0,
     duration: 2, // Adjust the duration for slower or faster fade-in
@@ -958,66 +1106,64 @@ body {
 </script>
   
 <script>
-    const sliderWrapper = document.querySelector('.continuous-slider-wrapper');
-    let isScrolling = false;
+   const sliderWrapper = document.querySelector('.continuous-slider-wrapper');
+let isScrolling = false;
 
-    // Set initial position for the slider
-    gsap.set(sliderWrapper, { xPercent: 0 });
+// Set initial position for the slider
+gsap.set(sliderWrapper, { xPercent: 0 });
 
-    // Function to handle continuous scrolling
-    const scrollSlider = (e) => {
-        if (isScrolling) {
-            const delta = e.deltaY || e.detail || e.wheelDelta;
+let totalWidth = 0; // Total width of all images
+const images = sliderWrapper.children; // Assuming images are direct children of the wrapper
+
+// Calculate the total width of images
+for (let image of images) {
+    totalWidth += image.offsetWidth; // Add each image's width
+}
+
+// Function to handle continuous scrolling
+const scrollSlider = (e) => {
+    if (isScrolling) {
+        const delta = e.deltaY || e.detail || e.wheelDelta;
+        const currentX = gsap.getProperty(sliderWrapper, "x");
+        
+        // Adjust the scrolling behavior based on screen size
+        const isMobile = window.innerWidth < 768; // Assuming mobile view is below 768px
+        const newX = isMobile ? currentX - delta * 0.5 : currentX; // For mobile, adjust scrolling
+        
+        // Check if the slider reaches the end or the start
+        if (newX <= -totalWidth + window.innerWidth || newX >= 0) {
+            // Reverse direction if at the end or start
             gsap.to(sliderWrapper, {
-                x: `-=${delta * 0.5}`, // Adjust speed as necessary
+                x: newX <= -totalWidth + window.innerWidth ? -totalWidth + window.innerWidth : 0,
+                duration: 0.5,
+                ease: "power1.out",
+                onComplete: () => {
+                    isScrolling = false; // Stop scrolling when at end/start
+                }
+            });
+        } else if (!isMobile) {
+            gsap.to(sliderWrapper, {
+                x: `-=${delta * 0.5}`, // Move the slider for horizontal scrolling
                 duration: 0.5,
                 ease: "power1.out"
             });
         }
-    };
-
-    sliderWrapper.addEventListener('mouseenter', () => {
-        isScrolling = true;
-    });
-
-    sliderWrapper.addEventListener('mouseleave', () => {
-        isScrolling = false;
-    });
-
-    // Attach mouse wheel event
-    sliderWrapper.addEventListener('wheel', scrollSlider);
-</script>
-
-<script>
-    // Import GSAP and ScrollToPlugin if not already done
-import gsap from 'gsap';
-import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-
-gsap.registerPlugin(ScrollToPlugin);
-
-// Select the button and sections
-const scrollButton = document.getElementById('scrollButton');
-const sections = document.querySelectorAll('.section');
-
-// Add click event listener to the button
-scrollButton.addEventListener('click', () => {
-    const currentSection = Array.from(sections).findIndex(section => {
-        return section.getBoundingClientRect().top >= 0;
-    });
-
-    const nextSection = currentSection + 1;
-
-    // Ensure the next section is within bounds
-    if (nextSection < sections.length) {
-        gsap.to(window, {
-            scrollTo: sections[nextSection],
-            duration: 1, // Animation duration
-            ease: "power2.out" // Easing function
-        });
     }
+};
+
+sliderWrapper.addEventListener('mouseenter', () => {
+    isScrolling = true;
 });
 
+sliderWrapper.addEventListener('mouseleave', () => {
+    isScrolling = false;
+});
+
+// Attach mouse wheel event
+sliderWrapper.addEventListener('wheel', scrollSlider);
+
 </script>
+
 
 
 
@@ -1038,6 +1184,7 @@ scrollButton.addEventListener('click', () => {
                 toggleActions: "play none none none",
             }
         });
+        gsap.registerPlugin(ScrollTrigger);
 
         // Animate the second text with a delay
         gsap.from(".fade-in-text", {
@@ -1048,13 +1195,29 @@ scrollButton.addEventListener('click', () => {
             delay: 1, // Delay before the second text appears
             scrollTrigger: {
                 trigger: ".fade-in-text",
-                start: "top 80%",
+                start: "top 90%",
+                once: true,
                 toggleActions: "play none none none",
             }
+            
         });
     });
 </script>
 <script>
+      const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+console.log(e)
+})
+
+function raf(time) {
+lenis.raf(time)
+requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+
+    
     // Select the button
     const exploreButton = document.querySelector('.explore-button');
   
@@ -1079,7 +1242,201 @@ scrollButton.addEventListener('click', () => {
     });
   </script>
 
-    
+<script>
+    // Register the ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Animate each image container when it comes into view
+        gsap.from(".image-class-1", {
+            y: 50, // Move from 100px below for a more pronounced effect
+            opacity: 0, // Start with zero opacity
+            duration: 0.5, // Longer duration for smoother animation
+            ease: "power2.out", // Smoother easing function
+            scrollTrigger: {
+                trigger: ".image-class-1", // Trigger animation when reaching this element
+                start: "top 80%", // Start animation when the top of the element reaches 80% of the viewport height
+                toggleActions: "play none none none" // Only play the animation once
+            }
+        });
+         // Hover animation for each image
+     const images = document.querySelectorAll(".image-class-1");
+        images.forEach((image) => {
+            image.addEventListener("mouseenter", () => {
+                gsap.to(image, {
+                    scale: 1.05, // Scale up the image
+                    duration: 0.1, // Animation duration
+                    ease: "power2.out" // Smoother easing function
+                });
+            });
+            image.addEventListener("mouseleave", () => {
+                gsap.to(image, {
+                    scale: 1, // Scale back to original size
+                    duration: 0.1,
+                    ease: "power2.out"
+                });
+            });
+        });
+        
+    });
+
+
+
+
+    gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Animate each image container when it comes into view
+    gsap.from(".image-class-2", {
+        y: 50, // Move from 100px below for a more pronounced effect
+        opacity: 0, // Start with zero opacity
+        duration: 0.5, // Longer duration for smoother animation
+        ease: "power2.out", // Smoother easing function
+        delay: 0.1,
+
+        scrollTrigger: {
+            trigger: ".image-class-2", // Trigger animation when reaching this element
+            start: "top 80%", // Start animation when the top of the element reaches 80% of the viewport height
+            toggleActions: "play none none none" // Only play the animation once
+        }
+    });
+     // Hover animation for each image
+     const images = document.querySelectorAll(".image-class-2");
+        images.forEach((image) => {
+            image.addEventListener("mouseenter", () => {
+                gsap.to(image, {
+                    scale: 1.05, // Scale up the image
+                    duration: 0.1, // Animation duration
+                    ease: "power2.out" // Smoother easing function
+                });
+            });
+            image.addEventListener("mouseleave", () => {
+                gsap.to(image, {
+                    scale: 1, // Scale back to original size
+                    duration: 0.1,
+                    ease: "power2.out"
+                });
+            });
+        });
+});
+
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Animate each image container when it comes into view
+    gsap.from(".image-class-3", {
+        y: 50, // Move from 100px below for a more pronounced effect
+        opacity: 0, // Start with zero opacity
+        duration: 0.5, // Longer duration for smoother animation
+        ease: "power2.out", // Smoother easing function
+        delay: 0.2,
+
+        scrollTrigger: {
+            trigger: ".image-class-3", // Trigger animation when reaching this element
+            start: "top 80%", // Start animation when the top of the element reaches 80% of the viewport height
+            toggleActions: "play none none none" // Only play the animation once
+            
+        }
+    });
+     // Hover animation for each image
+     const images = document.querySelectorAll(".image-class-3");
+        images.forEach((image) => {
+            image.addEventListener("mouseenter", () => {
+                gsap.to(image, {
+                    scale: 1.05, // Scale up the image
+                    duration: 0.1, // Animation duration
+                    ease: "power2.out" // Smoother easing function
+                });
+            });
+            image.addEventListener("mouseleave", () => {
+                gsap.to(image, {
+                    scale: 1, // Scale back to original size
+                    duration: 0.1,
+                    ease: "power2.out"
+                });
+            });
+        });
+});
+
+
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Animate each image container when it comes into view
+    gsap.from(".image-class-4", {
+        y: 50, // Move from 100px below for a more pronounced effect
+        opacity: 0, // Start with zero opacity
+        duration: 0.5, // Longer duration for smoother animation
+        ease: "power2.out", // Smoother easing function
+        delay: 0.3,
+
+        scrollTrigger: {
+            trigger: ".image-class-4", // Trigger animation when reaching this element
+            start: "top 80%", // Start animation when the top of the element reaches 80% of the viewport height
+            toggleActions: "play none none none" // Only play the animation once
+        }
+    });
+     // Hover animation for each image
+     const images = document.querySelectorAll(".image-class-4");
+        images.forEach((image) => {
+            image.addEventListener("mouseenter", () => {
+                gsap.to(image, {
+                    scale: 1.05, // Scale up the image
+                    duration: 0.1, // Animation duration
+                    ease: "power2.out" // Smoother easing function
+                });
+            });
+            image.addEventListener("mouseleave", () => {
+                gsap.to(image, {
+                    scale: 1, // Scale back to original size
+                    duration: 0.1,
+                    ease: "power2.out"
+                });
+            });
+        });
+});
+
+</script>
+<script>
+    document.getElementById('scrollButton1').addEventListener('click', () => {
+        document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+<script>
+    document.getElementById('scrollButton2').addEventListener('click', () => {
+        document.getElementById('section3').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+<script>
+         gsap.registerPlugin(ScrollToPlugin)
+
+    // Select all anchor links with hrefs starting with #
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent the default anchor click behavior
+
+        // Get the target section based on the href value
+        const targetSection = document.querySelector(this.getAttribute("href"));
+        
+        // Get the top offset position of the target section
+        const sectionTop = targetSection.offsetTop;
+        
+        // Animate the scroll using GSAP
+        gsap.to(window, {
+            scrollTo: sectionTop, // Scroll to the top position of the target section
+            duration: 1, // Animation duration in seconds
+            ease: "power2.inOut" // Easing function for smooth scrolling
+        });
+    });
+});
+
+</script>
 </body>
 
 </html>
