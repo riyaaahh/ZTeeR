@@ -128,32 +128,32 @@ body {
 
     </style>
      <style>
-   .main-div {
+  .main-div {
     width: 100%; 
     height: 600px; 
     background-image: url('assets/ServicesGsapImg1.png'); 
     background-size: cover;
     display: flex;
-    align-items: flex-start; /* Align items at the start vertically */
+    align-items: flex-start; 
     justify-content: flex-start;
     position: relative;
-    border-top: black;
+    border: black;
     border-radius: 1px;
-    overflow: hidden; /* Ensure overflow is hidden for the sliding effect */
+    overflow: hidden; 
 }
+
+
+
 
 .inner-div {
     width: 100%; 
     height: 100%; 
     margin: 0; 
     padding: 100px; 
-    background-color: rgba(0, 0, 0, 0.6); 
     display: flex;
     align-items: flex-start; /* Align items at the start vertically */
     justify-content: flex-start; /* Align items at the start horizontally */
     cursor: pointer; 
-    border-left: 1px solid rgb(255, 252, 252); /* Apply border only to the left */
-    border-right: 1px solid rgba(255, 255, 255, 0.4); /* Apply border only to the right */
     border-top: none; /* Remove top border */
     border-bottom: none; /* Remove bottom border */
     border-radius: 1px; 
@@ -164,7 +164,7 @@ body {
 /* The effect when hovering */
 .inner-div:hover {
     transform: translateY(-20px); /* Move the inner div up by 20px on hover */
-    background: linear-gradient(to bottom, rgb(255, 255, 255) 10%, rgba(255, 255, 255, 0) 60%, rgba(0, 0, 0, 0.6) 100%); /* Fading white background to original color */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgb(255, 255, 255) 5%, rgba(255, 255, 255, 0) 40%, rgba(0, 0, 0, 0.0) 100%);
 }
 
 .inner-div .transition-opacity {
@@ -671,8 +671,10 @@ body {
     </div>
 </div>
 
-<div class="main-div w-full mt-6" style="font-family: 'Gothic A1', sans-serif;">
-    <div class="inner-div text-white text-xs  relative group" data-bg="assets/ServicesGsapImg1.png">
+<div class="main-div w-full  mt-6" style="font-family: 'Gothic A1', sans-serif;">
+    <div class="bg-black bg-opacity-60 flex h-full">
+        <div class="border border-r-1">
+    <div class="inner-div h-full text-white text-xs   relative group" data-bg="assets/ServicesGsapImg1.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
             GRAY STRUCTURE
         </div>
@@ -680,6 +682,8 @@ body {
             Space brought to life through creativity, conceptual flair, and project expertise.
         </div>
     </div>
+</div>
+<div class="border border-r-1">
 
     <div class="inner-div text-white text-xs  relative group" data-bg="assets/ServicesGsapImg1.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
@@ -689,7 +693,8 @@ body {
             Space brought to life through creativity, conceptual flair, and project expertise.
         </div>
     </div>
-
+</div>        
+<div class="border border-r-1">
     <div class="inner-div text-white text-xs  relative group" data-bg="assets/ProjectHome3.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
             REFURBISHMENT
@@ -698,6 +703,8 @@ body {
             Space brought to life through creativity, conceptual flair, and project expertise.
         </div>
     </div>
+</div>
+<div class="border border-r-1">
 
     <div class="inner-div text-white text-xs  relative group" data-bg="assets/ProjectHome1.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
@@ -707,6 +714,8 @@ body {
             Space brought to life through creativity, conceptual flair, and project expertise.
         </div>
     </div>
+    </div>
+    <div class="border border-r-1">
 
     <div class="inner-div text-white text-xs  relative group" data-bg="assets/ProjectHome2.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
@@ -716,8 +725,9 @@ body {
             Space brought to life through creativity, conceptual flair, and project expertise.
         </div>
     </div>
+    </div>
+</div>
 
-    <div class="overlay"></div>
 </div>
 
 </div>
@@ -864,7 +874,7 @@ body {
                     </div>
                
             </div>
-            <div class="px-16">
+            <div class="px-16 pb-24">
                 <div class="w-full border border-b-1 my-10 bg-black text-black "> </div>
 <div class="flex text-xs justify-between text-black " style="font-family: 'Barlow', sans-serif; ">
                 <div>© Copyright ZRT Contracting 2024
