@@ -154,6 +154,7 @@ body {
     align-items: flex-start; /* Align items at the start vertically */
     justify-content: flex-start; /* Align items at the start horizontally */
     cursor: pointer; 
+
     border-top: none; /* Remove top border */
     border-bottom: none; /* Remove bottom border */
     border-radius: 1px; 
@@ -671,9 +672,9 @@ body {
     </div>
 </div>
 
-<div class="main-div w-full  mt-6" style="font-family: 'Gothic A1', sans-serif;">
-    <div class="bg-black bg-opacity-60 flex h-full">
-        <div class="border border-r-1">
+<div class="main-div w-screen  mt-6" style="font-family: 'Gothic A1', sans-serif;">
+    <div class="bg-black bg-opacity-60 flex w-full h-full">
+        <div class="w-64 border border-r-1">
     <div class="inner-div h-full text-white text-xs   relative group" data-bg="assets/ServicesGsapImg1.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
             GRAY STRUCTURE
@@ -683,9 +684,9 @@ body {
         </div>
     </div>
 </div>
-<div class="border border-r-1">
+<div class="w-72 border border-r-1">
 
-    <div class="inner-div text-white text-xs  relative group" data-bg="assets/ServicesGsapImg1.png">
+    <div class="inner-div text-white text-xs  relative group" data-bg="assets/HomeImg1.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
             INTERIOR DESIGN 
         </div>
@@ -693,8 +694,9 @@ body {
             Space brought to life through creativity, conceptual flair, and project expertise.
         </div>
     </div>
-</div>        
-<div class="border border-r-1">
+</div>
+<div class="w-64 border border-r-1">
+
     <div class="inner-div text-white text-xs  relative group" data-bg="assets/ProjectHome3.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
             REFURBISHMENT
@@ -704,7 +706,7 @@ body {
         </div>
     </div>
 </div>
-<div class="border border-r-1">
+<div class="w-72 border border-r-1">
 
     <div class="inner-div text-white text-xs  relative group" data-bg="assets/ProjectHome1.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
@@ -714,10 +716,10 @@ body {
             Space brought to life through creativity, conceptual flair, and project expertise.
         </div>
     </div>
-    </div>
-    <div class="border border-r-1">
+</div>
+<div class=" w-100 border border-r-1 ">
 
-    <div class="inner-div text-white text-xs  relative group" data-bg="assets/ProjectHome2.png">
+    <div class="inner-div  text-white text-xs  relative group" data-bg="assets/ProjectHome2.png">
         <div class="transition-opacity duration-400 font-bold group-hover:opacity-100 text-nowrap">
             TURNKEY SOLUTION
         </div>
@@ -728,6 +730,7 @@ body {
     </div>
 </div>
 
+    <div class="overlay"></div>
 </div>
 
 </div>
@@ -1116,8 +1119,12 @@ function toggleMenu() {
 </script>
   
 <script>
-   const sliderWrapper = document.querySelector('.continuous-slider-wrapper');
+const sliderWrapper = document.querySelector('.continuous-slider-wrapper');
 let isScrolling = false;
+let isDragging = false;
+let startX = 0;
+let currentX = 0;
+let scrollDirection = 1; // 1 for forward, -1 for reverse
 
 // Set initial position for the slider
 gsap.set(sliderWrapper, { xPercent: 0 });
@@ -1132,47 +1139,112 @@ for (let image of images) {
 
 // Function to handle continuous scrolling
 const scrollSlider = (e) => {
-    if (isScrolling) {
-        const delta = e.deltaY || e.detail || e.wheelDelta;
-        const currentX = gsap.getProperty(sliderWrapper, "x");
-        
-        // Adjust the scrolling behavior based on screen size
-        const isMobile = window.innerWidth < 768; // Assuming mobile view is below 768px
-        const newX = isMobile ? currentX - delta * 0.5 : currentX; // For mobile, adjust scrolling
-        
-        // Check if the slider reaches the end or the start
-        if (newX <= -totalWidth + window.innerWidth || newX >= 0) {
-            // Reverse direction if at the end or start
-            gsap.to(sliderWrapper, {
-                x: newX <= -totalWidth + window.innerWidth ? -totalWidth + window.innerWidth : 0,
-                duration: 0.5,
-                ease: "power1.out",
-                onComplete: () => {
-                    isScrolling = false; // Stop scrolling when at end/start
-                }
-            });
-        } else if (!isMobile) {
-            gsap.to(sliderWrapper, {
-                x: `-=${delta * 0.5}`, // Move the slider for horizontal scrolling
-                duration: 0.5,
-                ease: "power1.out"
-            });
-        }
+    e.preventDefault(); // Prevent the default scroll behavior
+    const delta = e.deltaY || e.detail || e.wheelDelta;
+    const scrollSpeed = 10; // Adjust for slower or faster effect
+
+    // Calculate the new position
+    let newX = currentX - delta * scrollSpeed * scrollDirection;
+
+    // Reverse the direction if it reaches the end
+    if (newX <= -totalWidth || newX >= 0) {
+        scrollDirection *= -1; // Reverse direction
+        newX = currentX - delta * scrollSpeed * scrollDirection; // Update newX after reversing
     }
+
+    // Animate the slider to the new position
+    gsap.to(sliderWrapper, {
+        x: newX,
+        duration: 1.2, // Adjust duration for smoother movement
+        ease: "power2.out" // Smoother easing function
+    });
+
+    // Update currentX
+    currentX = newX;
 };
 
-sliderWrapper.addEventListener('mouseenter', () => {
-    isScrolling = true;
-});
+// Click-and-drag functionality
+const onMouseDown = (e) => {
+    isDragging = true;
+    startX = e.clientX - currentX; // Record the starting point relative to the current position
+    sliderWrapper.classList.add('dragging');
+};
 
-sliderWrapper.addEventListener('mouseleave', () => {
-    isScrolling = false;
-});
+const onMouseMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    
+    // Calculate the new position based on the movement
+    currentX = e.clientX - startX;
 
-// Attach mouse wheel event
+    // Reverse the direction if it reaches the end
+    if (currentX <= -totalWidth || currentX >= 0) {
+        scrollDirection *= -1; // Reverse direction
+        currentX = Math.max(Math.min(currentX, 0), -totalWidth); // Clamp value to range
+    }
+
+    // Update the slider position
+    gsap.to(sliderWrapper, {
+        x: currentX,
+        duration: 0.8, // Make the dragging animation smoother
+        ease: "power2.out"
+    });
+};
+
+const onMouseUp = () => {
+    isDragging = false;
+    sliderWrapper.classList.remove('dragging');
+};
+
+// Button click functionality
+const scrollLeft = () => {
+    let newX = currentX + 150; // Adjust step size as needed
+
+    // Reverse the direction if it reaches the end
+    if (newX >= 0) {
+        scrollDirection *= -1;
+        newX = -totalWidth;
+    }
+
+    gsap.to(sliderWrapper, {
+        x: newX,
+        duration: 1.0, // Smoother and slower movement
+        ease: "power2.out"
+    });
+
+    currentX = newX;
+};
+
+const scrollRight = () => {
+    let newX = currentX - 150; // Adjust step size as needed
+
+    // Reverse the direction if it reaches the end
+    if (newX <= -totalWidth) {
+        scrollDirection *= -1;
+        newX = 0;
+    }
+
+    gsap.to(sliderWrapper, {
+        x: newX,
+        duration: 1.0, // Smoother and slower movement
+        ease: "power2.out"
+    });
+
+    currentX = newX;
+};
+
+// Attach event listeners
 sliderWrapper.addEventListener('wheel', scrollSlider);
+sliderWrapper.addEventListener('mousedown', onMouseDown);
+window.addEventListener('mousemove', onMouseMove);
+window.addEventListener('mouseup', onMouseUp);
 
+// Button elements
+document.querySelector('.scroll-left-btn').addEventListener('click', scrollLeft);
+document.querySelector('.scroll-right-btn').addEventListener('click', scrollRight);
 </script>
+
+
 
 
 
